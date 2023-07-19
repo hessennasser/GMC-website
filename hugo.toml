@@ -18,7 +18,7 @@ backgroundImage = 'image/herobg.jpg'
         title = "Global Mining Company | GMC"
         weight = 1
         [languages.en.params]
-            logoName = {name = "Global Mining Company | GMC", url="/en/"}
+            logoName = {name = "Global Mining Company | GMC", url="/GMC-website/en/"}
             
             copyRights = "Copyright 2023 . Global Mining Company | GMC"
             
@@ -61,7 +61,7 @@ backgroundImage = 'image/herobg.jpg'
         languageName = "Arabic"
         weight = 2
         [languages.ar.params]
-            logoName = {name = "شركة التعدين العالمية | GMC", url="/ar/"}
+            logoName = {name = "شركة التعدين العالمية | GMC", url="/GMC-website/ar/"}
 
             copyRights = "جميع الحقوق محفوظة 2023 . شركة التعدين العالمية | GMC"
 
