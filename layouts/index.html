@@ -27,7 +27,8 @@
                         class="fa-solid fa-arrow-down me-2"></i>
                     {{ if eq $.Site.Language.Lang "en" }} View Our Products {{ else }} عرض منتجاتنا {{ end }}
                 </a>
-                <a href="{{ if eq $.Site.Language.Lang "en" }}/GMC-website/en/contact{{ else }}/GMC-website/ar/contact{{ end }}"
+                <a href="{{ if eq $.Site.Language.Lang " en" }}/GMC-website/en/contact{{ else
+                    }}/GMC-website/ar/contact{{ end }}"
                     class="py-3 px-6 rounded border border-black hover:border-black hover:bg-black hover:text-white hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500">
                     {{ if eq $.Site.Language.Lang "en" }} Contact Us {{ else }} اتصل بنا {{ end }}
                 </a>
@@ -106,7 +107,8 @@
                 {{ $duration = add $duration 200 }}
                 {{ end }}
             </ul>
-            <a href="{{ if eq $.Site.Language.Lang "en" }}/GMC-website/en/products{{ else }}/GMC-website/ar/products{{ end }}"
+            <a href="{{ if eq $.Site.Language.Lang " en" }}/GMC-website/en/products{{ else }}/GMC-website/ar/products{{
+                end }}"
                 class="block w-fit mx-auto my-10 py-3 px-6 rounded border border-black text-white bg-blue-500 hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500">
                 {{ if eq $.Site.Language.Lang "en" }} All Products {{ else }} جميع المنتجات {{ end }}
             </a>
@@ -127,7 +129,7 @@
         </h2>
         <!-- content -->
         <div class="container">
-            <div class="grid gap-10 grid-cols-2">
+            <div class="grid gap-10 grid-cols-1 md:grid-cols-2">
                 <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
                     data-aos="fade-up">
                     <h2 class="text-2xl font-bold border-b pb-2">Our Mission</h2>
@@ -168,7 +170,7 @@
         </h2>
         <!-- content -->
         <div class="container">
-            <div class="grid gap-10 md:grid-cols-2 justify-items-center">
+            <div class="grid gap-10 grid-cols-1 md:grid-cols-2 justify-items-center">
                 <div class="col-span-2 p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
                     data-aos="fade-up">
                     <h2 class="text-2xl font-bold border-b pb-2">بدايـه الطريق</h2>
@@ -195,56 +197,63 @@
                         يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام.
                     </h3>
                 </div>
-                <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
-                    data-aos="fade-up">
-                    <h2 class="text-2xl font-bold border-b pb-2">مهمتنا</h2>
-                    <h3>
-                        تنحصر مهمتنا في التميز والتفوق في تلبية توقعات مساهمي وأصحاب العلاقة في شركتنا إضافة إلى تقديم
-                        خدماتنا
-                        لمجتمعنا من خلال مساهمتنا في أن نكون عنصرا فاعلا في تنميتها.
-                    </h3>
-                    <h3>
-                        نحقق مهمتنا هذه بالتعاون والتنسيق المتلازمين مع شركائنا المحليين والعالميين من البلدان الذين
-                        نصدر
-                        إليها ،
-                        وكذلك بتطوير شركاتنا الاستراتيجية مع عملائنا وموردينا الكرام ، إضافة إلى تسخير آخر التقنيات
-                        وتوفير
-                        فرص عمل
-                        صحية تتوافق مع متطلبات موظفينا الطبيعية والعاطفية والذهنية والروحية ، ملبّين بذلك متطلبات
-                        وتطلعات
-                        جميع أصحاب
-                        العلاقة بشركتنا.
-                    </h3>
-                </div>
-                <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
-                    data-aos="fade-up">
-                    <h2 class="text-2xl font-bold border-b pb-2">رؤيتنا</h2>
-                    <h3>
-                        رؤيتنا هي أن نبقى المورد المتميز والأهم لكربونات الكالسيوم وبقية الخامات التعدينية في جمهورية
-                        مصر
-                        العربية ،
-                        وتعزيز خدماتنا في الدول التي نصدر لها ، ومن ثم تطوير أسواقنا عالميا ، وسنحقق أهدافنا بعون الله
-                        بالنمو الذاتي
-                        والاستحواذ والتطور المستمر ، بشراكة حقيقية مع عملائنا وموردينا الاستراتيجيين.
-                    </h3>
-                    <h3>
-                        سنلبي المتطلبات المتغيرة لصناعتنا من خلال مرونتنا وسياساتنا التمكينة والابتكارية ، تماشيا مع
-                        أعلى
-                        درجات
-                        الكفاءة المهنية.
-                    </h3>
-                    <h3>
-                        سنحافظ على وندعم قنوات التواصل مع جمهورنا وعملائنا وموردينا وجميع أصحاب العلاقة بشركتنا ، بغية
-                        أن
-                        نلبي
-                        تطلعاتهم وتوقعاتهم بأمثل وأفضل الأساليب.
-                    </h3>
-                    <h3>
-                        سنقدم مناخ عمل متميزا باحترافية لجميع موظفينا ، آخذين بالاعتبار العوامل البيئية والمناخية إضافة
-                        إلى
-                        إرثنا
-                        الذي هو موضع تقديرنا واحترامنا.
-                    </h3>
+                <div class="col-span-2 grid gap-10 grid-cols-1 md:grid-cols-2 justify-items-center">
+                    <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
+                        data-aos="fade-up">
+                        <h2 class="text-2xl font-bold border-b pb-2">مهمتنا</h2>
+                        <h3>
+                            تنحصر مهمتنا في التميز والتفوق في تلبية توقعات مساهمي وأصحاب العلاقة في شركتنا إضافة إلى
+                            تقديم
+                            خدماتنا
+                            لمجتمعنا من خلال مساهمتنا في أن نكون عنصرا فاعلا في تنميتها.
+                        </h3>
+                        <h3>
+                            نحقق مهمتنا هذه بالتعاون والتنسيق المتلازمين مع شركائنا المحليين والعالميين من البلدان الذين
+                            نصدر
+                            إليها ،
+                            وكذلك بتطوير شركاتنا الاستراتيجية مع عملائنا وموردينا الكرام ، إضافة إلى تسخير آخر التقنيات
+                            وتوفير
+                            فرص عمل
+                            صحية تتوافق مع متطلبات موظفينا الطبيعية والعاطفية والذهنية والروحية ، ملبّين بذلك متطلبات
+                            وتطلعات
+                            جميع أصحاب
+                            العلاقة بشركتنا.
+                        </h3>
+                    </div>
+                    <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
+                        data-aos="fade-up">
+                        <h2 class="text-2xl font-bold border-b pb-2">رؤيتنا</h2>
+                        <h3>
+                            رؤيتنا هي أن نبقى المورد المتميز والأهم لكربونات الكالسيوم وبقية الخامات التعدينية في
+                            جمهورية
+                            مصر
+                            العربية ،
+                            وتعزيز خدماتنا في الدول التي نصدر لها ، ومن ثم تطوير أسواقنا عالميا ، وسنحقق أهدافنا بعون
+                            الله
+                            بالنمو الذاتي
+                            والاستحواذ والتطور المستمر ، بشراكة حقيقية مع عملائنا وموردينا الاستراتيجيين.
+                        </h3>
+                        <h3>
+                            سنلبي المتطلبات المتغيرة لصناعتنا من خلال مرونتنا وسياساتنا التمكينة والابتكارية ، تماشيا مع
+                            أعلى
+                            درجات
+                            الكفاءة المهنية.
+                        </h3>
+                        <h3>
+                            سنحافظ على وندعم قنوات التواصل مع جمهورنا وعملائنا وموردينا وجميع أصحاب العلاقة بشركتنا ،
+                            بغية
+                            أن
+                            نلبي
+                            تطلعاتهم وتوقعاتهم بأمثل وأفضل الأساليب.
+                        </h3>
+                        <h3>
+                            سنقدم مناخ عمل متميزا باحترافية لجميع موظفينا ، آخذين بالاعتبار العوامل البيئية والمناخية
+                            إضافة
+                            إلى
+                            إرثنا
+                            الذي هو موضع تقديرنا واحترامنا.
+                        </h3>
+                    </div>
                 </div>
             </div>
         </div>
