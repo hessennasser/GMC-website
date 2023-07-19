@@ -26,10 +26,10 @@ backgroundImage = 'image/herobg.jpg'
             
             # header links
             headerLinks = [
-                { name = "Home", url = "/en/" },
-                { name = "About Us", url = "/en/about" },
-                { name = "Contact Us", url = "/en/contact" },
-                { name = "Products", url = "/en/products" },
+                { name = "Home", url = "/GMC-website/en/" },
+                { name = "About Us", url = "/GMC-website/en/about" },
+                { name = "Contact Us", url = "/GMC-website/en/contact" },
+                { name = "Products", url = "/GMC-website/en/products" },
             ]
 
             # hero section data
@@ -69,10 +69,10 @@ backgroundImage = 'image/herobg.jpg'
 
             # header links
             headerLinks = [
-                { name = "الرئيسية", url = "/ar/" },
-                { name = "من نحن", url = "/ar/about" },
-                { name = "اتصل بنا", url = "/ar/contact" },
-                { name = "المنتجات", url = "/ar/products" },
+                { name = "الرئيسية", url = "/GMC-website/ar/" },
+                { name = "من نحن", url = "/GMC-website/ar/about" },
+                { name = "اتصل بنا", url = "/GMC-website/ar/contact" },
+                { name = "المنتجات", url = "/GMC-website/ar/products" },
             ]
             
             # hero section data 

@@ -50,7 +50,7 @@
             <!-- website menu (pages links) -->
             <ul class="links flex-col md:flex-row flex gap-3">
                 {{ range .Site.Params.headerLinks }}
-                <li><a class="uppercase text-xs md:text-sm" href="/GMC-website/{{.url}}">{{.name}}</a></li>
+                <li><a class="uppercase text-xs md:text-sm" href="{{.url}}">{{.name}}</a></li>
                 {{ end }}
             </ul>
             <!-- copyrights -->
