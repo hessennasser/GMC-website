@@ -1,0 +1,60 @@
+<!-- Main Footer In All Pages -->
+<footer class="bg-gray-100 pt-14 pb-5">
+    <div class="container">
+
+        <div class="grid grid-cols-4 gap-14">
+            <!-- Brand Logo -->
+            <div class="xl:col-span-1 col-span-4 flex items-center justify-start">
+                <!-- import logo image -->
+                {{ $image := resources.Get "images/logo.png" }}
+                {{ with $image }}
+                <img class="w-24 h-24w-24" src="{{ .RelPermalink }}" alt="GTC">
+                {{ end }}
+                <a href="{{ .Site.Params.logoName.url }}" class="text-lg md:text-2xl font-bold">
+                    {{.Site.Params.logoName.name }}</a>
+            </div>
+            <div class="xl:col-span-3 col-span-4 xl:mx-20 ">
+                <div class="grid md:grid-cols-3 gap-5">
+                    <!-- Contact Information -->
+                    <div class="grid gap-5 col-span-2">
+                        <h3 class="text-lg font-bold">
+                            {{ if eq $.Site.Language.Lang "en" }} Get in touch {{ else }} تواصل معنا {{ end }}
+                        </h3>
+                        {{ range .Site.Params.contactInfo }}
+                        <div class="flex items-center gap-2">
+                            <i class="{{.icon}} text-gray-400"></i>
+                            <p class="text-sm">{{.value}}</p>
+                        </div>
+                        {{end}}
+                    </div>
+                    <!-- website Languages -->
+                    <div>
+                        <h3 class="text-lg font-bold mb-5">
+                            {{ if eq $.Site.Language.Lang "en" }} Languages {{ else }} اللغات {{ end }}
+                        </h3>
+                        <div>
+                            {{ range .Site.Languages }}
+                            <a class="block my-2" rel="alternate" href="{{ .Lang | relURL }}" hreflang="{{ .Lang }}"
+                                lang="{{ .Lang }}">
+                                {{ .LanguageName }}
+                            </a>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="flex gap-5 justify-between sm:items-center flex-col sm:flex-row pt-5">
+            <!-- website menu (pages links) -->
+            <ul class="links flex-col md:flex-row flex gap-3">
+                {{ range .Site.Params.headerLinks }}
+                <li><a class="uppercase text-xs md:text-sm" href="{{.url}}">{{.name}}</a></li>
+                {{ end }}
+            </ul>
+            <!-- copyrights -->
+            <p class="text-gray-400">{{.Site.Params.copyRights}}</p>
+        </div>
+    </div>
+</footer>

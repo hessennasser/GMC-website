@@ -1,0 +1,43 @@
+# Hugo output directory
+/public/
+
+# ignore node_modules
+node_modules/
+
+# Cache and backup files
+*.bak
+*.swp
+*~
+.DS_Store
+
+# Ignore generated resources
+/resources/
+
+# Ignore OS-specific files
+Thumbs.db
+.DS_Store
+
+# Ignore temporary files
+*.tmp
+
+# Ignore Hugo config
+config.toml
+config.yaml
+config.json
+
+# Ignore logs
+/log/
+
+# Ignore compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore vendor dependencies (if using modules)
+/vendor/
+
+# Ignore specific directories or files you don't want to track
+# /path/to/ignore/
+# specific-file.ext
+.vercel

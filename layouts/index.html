@@ -1,0 +1,484 @@
+{{ define "main" }}
+
+{{ $logoName := .Site.Params.logoName }}
+{{ $description := .Site.Params.description }}
+
+<!-- import logo image -->
+<!-- ========== Hero section Start ========== -->
+
+<!-- import hero section background -->
+{{ $image := resources.Get "images/hero-bg.jpg" }}
+{{ with $image }}
+<section
+    class="sticky top-0 bg-amber-500/5 py-36 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
+    style="background-image:url('{{.RelPermalink | relURL }}')">
+    {{ end }}
+    <div class="container">
+        <div>
+            <!-- Title -->
+            <h1 class="md:text-5xl text-3xl text-white font-medium my-5">{{.Site.Params.heroSection.title}}</h1>
+            <!-- Description -->
+            <p class="w-full md:w-3/4 text-lg font-medium mt-6 mb-20 text-slate-100">
+                {{.Site.Params.heroSection.description}}</p>
+            <!-- Buttons -->
+            <div class="flex flex-wrap items-center gap-5">
+                <a href="#"
+                    class="py-3 px-6 rounded border border-black text-white bg-black hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500"><i
+                        class="fa-solid fa-arrow-down me-2"></i>
+                    {{ if eq $.Site.Language.Lang "en" }} View Our Products {{ else }} عرض منتجاتنا {{ end }}
+                </a>
+                <a href="{{ if eq $.Site.Language.Lang " en" }}/en/contact{{ else }}/ar/contact{{ end }}"
+                    class="py-3 px-6 rounded border border-black hover:border-black hover:bg-black hover:text-white hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500">
+                    {{ if eq $.Site.Language.Lang "en" }} Contact Us {{ else }} اتصل بنا {{ end }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Social Media Icons -->
+    <div class="absolute end-0 top-1/2 -translate-y-1/2 hidden md:block">
+        <div class="flex flex-col gap-5 px-2">
+            <a href="#"
+                class="text-lg bg-black text-white p-2 rounded-lg hover:bg-amber-300 w-10 h-10 px-2 grid place-content-center"><i
+                    class="fa-brands fa-twitter"></i></a>
+            <a href="#"
+                class="text-lg bg-black text-white p-2 rounded-lg hover:bg-amber-300 w-10 h-10 px-2 grid place-content-center"><i
+                    class="fa-brands fa-facebook"></i></a>
+            <a href="#"
+                class="text-lg bg-black text-white p-2 rounded-lg hover:bg-amber-300 w-10 h-10 px-2 grid place-content-center"><i
+                    class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+</section>
+<!-- ========== Hero section End ========== -->
+
+<!-- Home Section Start -->
+<div class="relative z-10 bg-[#f9fafb] flex flex-col gap-16 pb-10">
+
+    <!-- ========== Advantages Start ========== -->
+    {{ partial "advantages.html" (dict "advantagesTitle" .Site.Params.advantagesTitle "advantagesDescription"
+    .Site.Params.advantagesDescription "advantagesContent" .Site.Params.advantagesContent) }}
+    <!-- ========== Advantages End ========== -->
+
+    <!-- ========== Products Start ========== -->
+    <section>
+        <div class="container">
+            <!-- title -->
+            <h2
+                class="text-3xl text-gray-600 font-medium text-center w-fit mx-auto relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+                {{ if eq $.Site.Language.Lang "en" }}Featured Products{{ else }}منتجات مميزة{{ end }}
+            </h2>
+            <!-- description -->
+            <p class="text-center text-gray-500 mt-2 mb-10">
+                {{ if eq $.Site.Language.Lang "en" }}A distinguished group of our products{{ else }}مجموعه مميزه من
+                منتجات التعدين لدينا{{ end }}
+            </p>
+            <!-- products List -->
+            <ul class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                {{ $products := slice }}
+                {{ range .Site.RegularPages }}
+                {{ if eq .Section "products" }}
+                {{ $products = $products | append . }}
+                {{ end }}
+                {{ end }}
+                {{ $latestProducts := slice }}
+                {{ range $products }}
+                {{ if lt (len $latestProducts) 8 }}
+                {{ $latestProducts = $latestProducts | append . }}
+                {{ end }}
+                {{ end }}
+                {{ $duration := 500 }}
+                {{ range $latestProducts }}
+                <li class="group flex flex-col bg-amber-200 relative rounded-md overflow-hidden shadow-md hover:-translate-y-2 duration-300 hover:shadow-xl"
+                    data-aos="fade-up" data-aos-duration="{{ $duration }}">
+                    <a href="{{ .RelPermalink | relURL }}" class="w-full h-full">
+                        {{ with .Params.image }}
+                        {{ $image := resources.Get . }}
+                        {{ with $image }}
+                        <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}"
+                            class="w-full h-64 object-cover group-hover:scale-105 duration-300">
+                        {{ end }}
+                        {{ end }}
+                        <h4 class="absolute w-full bottom-0 left-0 py-2 text-lg text-center bg-white">
+                            {{ .Params.title }}
+                        </h4>
+                    </a>
+                </li>
+                {{ $duration = add $duration 200 }}
+                {{ end }}
+            </ul>
+            <a href="{{ if eq $.Site.Language.Lang " en" }}/en/products{{ else }}/ar/products{{ end }}"
+                class="block w-fit mx-auto my-10 py-3 px-6 rounded border border-black text-white bg-blue-500 hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500">
+                {{ if eq $.Site.Language.Lang "en" }} All Products {{ else }} جميع المنتجات {{ end }}
+            </a>
+        </div>
+    </section>
+    <!-- ========== Products End ========== -->
+
+    <!-- ========== About Section Start ========== -->
+    {{ if eq $.Site.Language.Lang "en" }}
+    <!-- About - EN -->
+    <section>
+        <!-- title -->
+        <h2
+            class="
+            text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-8
+            relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+            About Us
+        </h2>
+        <!-- content -->
+        <div class="container">
+            <div class="grid gap-10 grid-cols-2">
+                <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
+                    data-aos="fade-up">
+                    <h2 class="text-2xl font-bold border-b pb-2">Our Mission</h2>
+                    <p>Our mission summarizes how we meet the requirements and expectations of our clients and share in
+                        business
+                        development through a partnership pattern.</p>
+                    <p>We always consider the strategic relations of different members in our process, including
+                        clients,
+                        suppliers,
+                        and our factory teamwork.</p>
+                </div>
+                <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
+                    data-aos="fade-up">
+                    <h2 class="text-2xl font-bold border-b pb-2">Our Vision</h2>
+                    <p>To be the best quality provider of mining products in Egypt and always keep up with new standards
+                        and
+                        techniques for
+                        our global markets in partnership with our clients.</p>
+                    <p>We will continue to provide support and maintain strong communication with our clients,
+                        suppliers,
+                        and
+                        our
+                        teamwork
+                        employees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ else }}
+    <!-- About AR -->
+    <section>
+        <!-- title -->
+        <h2
+            class="
+            text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-8
+            relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+            من نحن
+        </h2>
+        <!-- content -->
+        <div class="container">
+            <div class="grid gap-10 md:grid-cols-2 justify-items-center">
+                <div class="col-span-2 p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
+                    data-aos="fade-up">
+                    <h2 class="text-2xl font-bold border-b pb-2">بدايـه الطريق</h2>
+                    <h3>
+                        بدأ رحلتنا مع التعدين في ثمانينات القرن الماضي بالتجارة في كربونات الكالسيوم وحصوة الزعفران
+                        وحصوة
+                        سيناء وكسر
+                        الرخام الألابستر والأسيوطي ، وظلت الرحلة التجارية مع هذه الخامات التعدينية حتى أوائل القرن
+                        الحالي
+                        حيث بدأنا
+                        في تجهيز خطوط الإنتـاج اللازمة لإنتاج بعض الخامات التعدينية ، فافتتح المصنع في عام ٢٠١٣ بالمنطقة
+                        الصناعية
+                        الخامسة بمدينة السادات ، بأحدث خطوط الإنتاج والتجهيزات اللازمة للتعبئة والشحن .
+                    </h3>
+                    <h3>
+                        ثم وفي عام ٢٠١٧، ومن أجل تلبية متطلبات السوق والمعايير العالمية ، تم تركيب أكثر من خط إنتاج
+                        لنحصل
+                        على
+                        المنتجات التعدينية بجميع المقاسات المطلوبة لكي نلبي الطلبات في هذا المجال .
+                    </h3>
+                    <h3>
+                        نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية
+                        العالمية مما
+                        يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام.
+                    </h3>
+                </div>
+                <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
+                    data-aos="fade-up">
+                    <h2 class="text-2xl font-bold border-b pb-2">مهمتنا</h2>
+                    <h3>
+                        تنحصر مهمتنا في التميز والتفوق في تلبية توقعات مساهمي وأصحاب العلاقة في شركتنا إضافة إلى تقديم
+                        خدماتنا
+                        لمجتمعنا من خلال مساهمتنا في أن نكون عنصرا فاعلا في تنميتها.
+                    </h3>
+                    <h3>
+                        نحقق مهمتنا هذه بالتعاون والتنسيق المتلازمين مع شركائنا المحليين والعالميين من البلدان الذين
+                        نصدر
+                        إليها ،
+                        وكذلك بتطوير شركاتنا الاستراتيجية مع عملائنا وموردينا الكرام ، إضافة إلى تسخير آخر التقنيات
+                        وتوفير
+                        فرص عمل
+                        صحية تتوافق مع متطلبات موظفينا الطبيعية والعاطفية والذهنية والروحية ، ملبّين بذلك متطلبات
+                        وتطلعات
+                        جميع أصحاب
+                        العلاقة بشركتنا.
+                    </h3>
+                </div>
+                <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
+                    data-aos="fade-up">
+                    <h2 class="text-2xl font-bold border-b pb-2">رؤيتنا</h2>
+                    <h3>
+                        رؤيتنا هي أن نبقى المورد المتميز والأهم لكربونات الكالسيوم وبقية الخامات التعدينية في جمهورية
+                        مصر
+                        العربية ،
+                        وتعزيز خدماتنا في الدول التي نصدر لها ، ومن ثم تطوير أسواقنا عالميا ، وسنحقق أهدافنا بعون الله
+                        بالنمو الذاتي
+                        والاستحواذ والتطور المستمر ، بشراكة حقيقية مع عملائنا وموردينا الاستراتيجيين.
+                    </h3>
+                    <h3>
+                        سنلبي المتطلبات المتغيرة لصناعتنا من خلال مرونتنا وسياساتنا التمكينة والابتكارية ، تماشيا مع
+                        أعلى
+                        درجات
+                        الكفاءة المهنية.
+                    </h3>
+                    <h3>
+                        سنحافظ على وندعم قنوات التواصل مع جمهورنا وعملائنا وموردينا وجميع أصحاب العلاقة بشركتنا ، بغية
+                        أن
+                        نلبي
+                        تطلعاتهم وتوقعاتهم بأمثل وأفضل الأساليب.
+                    </h3>
+                    <h3>
+                        سنقدم مناخ عمل متميزا باحترافية لجميع موظفينا ، آخذين بالاعتبار العوامل البيئية والمناخية إضافة
+                        إلى
+                        إرثنا
+                        الذي هو موضع تقديرنا واحترامنا.
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ end }}
+    <!-- ========== About Section End ========== -->
+
+    <!-- ========== Contact Section Start ========== -->
+    {{ if eq $.Site.Language.Lang "en" }}
+    <!-- Contact - EN -->
+    <section>
+        <!-- title -->
+        <h2
+            class="
+            text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-8
+            relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+            Contact Us
+        </h2>
+        <!-- content -->
+        <div class="container">
+            <div class="lg:flex align-items-center">
+                <!-- contact Form -->
+                <div class="lg:w-1/2" data-aos="flip-left">
+                    <div class="mb-6 relative bg-clip-border rounded-[0.1875rem]">
+                        <form class="py-12">
+                            <div class="flex gap-6">
+                                <div class="md:w-1/2">
+                                    <div class="mb-5">
+                                        <label for="exampleInputName1"
+                                            class="block text-sm font-medium mb-1 text-gray-600">Name <span
+                                                class="text-red-500">*</span></label>
+                                        <input type="text"
+                                            class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                            id="exampleInputName1" placeholder="Your Name">
+                                    </div>
+                                </div>
+                                <div class="md:w-1/2">
+                                    <div class="mb-5">
+                                        <label for="exampleInputName"
+                                            class="block text-sm font-medium mb-1 text-gray-600">Name <span
+                                                class="text-red-500">*</span></label>
+                                        <input type="text"
+                                            class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                            id="exampleInputName" placeholder="Your Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <div class="mb-5">
+                                    <label for="exampleInputEmail1"
+                                        class="block text-sm font-medium mb-1 text-gray-600">Email <span
+                                            class="text-red-500">*</span></label>
+                                    <input type="email"
+                                        class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                        id="exampleInputEmail1" placeholder="Your Email">
+                                </div>
+                                <div class="mb-5">
+                                    <label for="exampleFormControlTextarea1"
+                                        class="block text-sm font-medium mb-1 text-gray-600">Message <span
+                                            class="text-red-500">*</span></label>
+                                    <textarea
+                                        class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                        id="exampleFormControlTextarea1" rows="4"
+                                        placeholder="Type Your Massage..."></textarea>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="inline-flex items-center text-sm bg-blue-500 text-white font-medium leading-6 text-center align-middle select-none py-2 px-4 rounded-md transition-all hover:shadow-lg hover:shadow-blue-400/60">
+                                Send
+                                <i class="fa-solid fa-paper-plane mx-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Goggle map location -->
+                <div class="lg:w-5/12 ms-auto overflow-x-hidden" data-aos="flip-right">
+                    <div class="h-[520px]">
+                        <div id="marker-map5" class="h-100" data-toggle="map"
+                            data-map="{&quot;mapCenter&quot;: [40.749179, -73.989276], &quot;zoom&quot;: 12, &quot;useTextIcon&quot;: false, &quot;interactive&quot;: true, &quot;geojson&quot;: &quot;/assets/sample-listing-geojson.json&quot; }">
+                            <iframe class="w-full h-[500px]"
+                                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6030.418742494061!2d-111.34563870463673!3d26.01036670629853!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1471908546569"
+                                frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- contact information -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="500">
+                    <span
+                        class="flex items-center justify-center w-12 h-12 bg-blue-500/60 rounded-lg relative me-4 shrink-0">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                    <div class="grow">
+                        <h5 class="text-base text-gray-700">Email</h5>
+                        <span>info@gmc-eg.com</span>
+                    </div>
+                </div>
+                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
+                    <span
+                        class="flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-lg relative me-4 shrink-0">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+                    <div class="grow">
+                        <h5 class="text-base text-gray-700">Phone</h5>
+                        <span>+20 0102 6229 900</span>
+                    </div>
+                </div>
+                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="900">
+                    <span
+                        class="flex items-center justify-center w-12 h-12 bg-teal-500/20 rounded-lg relative me-4 shrink-0">
+                        <i class="fa-solid fa-map-marker"></i>
+                    </span>
+                    <div class="grow">
+                        <h5 class="text-base text-gray-700">Address</h5>
+                        <span>Head Office & Factory / Fifth industrial zone, Sadat City , Monofia , Egypt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ else }}
+    <!-- Contact AR -->
+    <section>
+        <!-- title -->
+        <h2
+            class="
+            text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-8
+            relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+            تواصل معنا
+        </h2>
+        <!-- content -->
+        <div class="container">
+            <div class="lg:flex align-items-center">
+                <!-- contact form -->
+                <div class="lg:w-1/2" data-aos="flip-left">
+                    <div class="mb-6 relative bg-clip-border rounded-[0.1875rem]">
+                        <form class="py-12">
+                            <div class="flex gap-6">
+                                <div class="md:w-1/2">
+                                    <div class="mb-5">
+                                        <label for="first-name"
+                                            class="block text-sm font-medium mb-1 text-gray-600">الاسم الاول<span
+                                                class="text-red-500">*</span></label>
+                                        <input type="text"
+                                            class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                            id="first-name" placeholder="اسمك">
+                                    </div>
+                                </div>
+                                <div class="md:w-1/2">
+                                    <div class="mb-5">
+                                        <label for="last-name"
+                                            class="block text-sm font-medium mb-1 text-gray-600">الاسم الاخير<span
+                                                class="text-red-500">*</span></label>
+                                        <input type="text"
+                                            class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                            id="last-name" placeholder="اسمك">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <div class="mb-5">
+                                    <label for="email" class="block text-sm font-medium mb-1 text-gray-600">البريد
+                                        الإلكتروني <span class="text-red-500">*</span></label>
+                                    <input type="email"
+                                        class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                        id="email" placeholder="بريدك الإلكتروني">
+                                </div>
+                                <div class="mb-5">
+                                    <label for="message" class="block text-sm font-medium mb-1 text-gray-600">الرسالة
+                                        <span class="text-red-500">*</span></label>
+                                    <textarea
+                                        class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                        id="message" rows="4" placeholder="اكتب رسالتك..."></textarea>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="inline-flex items-center text-sm bg-blue-500 text-white font-medium leading-6 text-center align-middle select-none py-2 px-4 rounded-md transition-all hover:shadow-lg hover:shadow-blue-400/60">
+                                إرسال
+                                <i class="fa-solid fa-paper-plane mx-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Goggle map location -->
+                <div class="lg:w-5/12 ms-auto overflow-x-hidden" data-aos="flip-right">
+                    <div class="h-[520px]">
+                        <div id="marker-map5" class="h-100" data-toggle="map"
+                            data-map="{&quot;mapCenter&quot;: [40.749179, -73.989276], &quot;zoom&quot;: 12, &quot;useTextIcon&quot;: false, &quot;interactive&quot;: true, &quot;geojson&quot;: &quot;/assets/sample-listing-geojson.json&quot; }">
+                            <iframe class="w-full h-[500px]"
+                                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d6030.418742494061!2d-111.34563870463673!3d26.01036670629853!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1471908546569"
+                                frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- contact information -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="500">
+                    <span
+                        class="flex items-center justify-center w-12 h-12 bg-blue-500/60 rounded-lg relative me-4 shrink-0">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                    <div class="grow">
+                        <h5 class="text-base text-gray-700">البريد الإلكتروني</h5>
+                        <span>info@gmc-eg.com</span>
+                    </div>
+                </div>
+                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
+                    <span
+                        class="flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-lg relative me-4 shrink-0">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+                    <div class="grow">
+                        <h5 class="text-base text-gray-700">الهاتف</h5>
+                        <span>+20 0102 6229 900</span>
+                    </div>
+                </div>
+                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="900">
+                    <span
+                        class="flex items-center justify-center w-12 h-12 bg-teal-500/20 rounded-lg relative me-4 shrink-0">
+                        <i class="fa-solid fa-map-marker"></i>
+                    </span>
+                    <div class="grow">
+                        <h5 class="text-base text-gray-700">العنوان</h5>
+                        <span>المكتب الرئيسي والمصنع / المنطقة الصناعية الخامسة، مدينة السادات، المنوفية، مصر</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ end }}
+    <!-- ========== Contact Section End ========== -->
+
+</div>
+<!-- Home Section End -->
+{{ end }}

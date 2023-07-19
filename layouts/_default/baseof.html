@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" {{ if eq .Site.Language.Lang "ar" }} dir="rtl" {{ else }}dir="ltr" {{ end }}>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{ $title := .Site.Params.logoName }}
+    <title>{{ $title.name }}</title>
+    <!--# important SEO meta tags -->
+    <meta name="keywords" content="crusher,sand maker,ball mills,rotary kiln">
+    <meta name="description" content="Global Mining Co. (GMC)
+    شركة العالمية للتعدين Egyptian 
+    Export &amp; Supply Calcium Carbonate, Kaolin, Talc, Gypsum, Dolomite, Phosphate, Marble, Quartz, Feldspar,...etc.
+    Tel: +201026229900   ">
+    <meta name="author" content="Global Mining Co. (GMC) شركة العالمية للتعدين">
+    <meta name="robots" content="index, follow">
+
+    <!--# Link TailwindCss && CSS File -->
+    <!-- resources.Get "style.css" will fetch the style.css file. 
+    It will not work if you mention the exact location like "./assets/style.css".-->
+    {{ $style := resources.Get "css/style.css" }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    {{ $custom := resources.Get "css/custom.css" }}
+    <link rel="stylesheet" href="{{ $custom.Permalink }}">
+
+    <!-- Link Font awesome by CDN -->
+    <script src="https://kit.fontawesome.com/d633f21f4a.js" crossorigin="anonymous"></script>
+
+    <!-- Animation on Scroll css -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Link JS file -->
+    {{ $js := resources.Get "js/main.js" | js.Build }}
+    <script src="{{$js.Permalink}}" defer></script>
+
+</head>
+
+<body>
+    {{ partial "header.html" . }}
+
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+
+    <!-- Back To Top Start -->
+    <button data-toggle="back-to-top" aria-label="Scroll To Top"
+        class="fixed text-sm rounded-full z-10 end-5 h-9 w-9 text-center bg-blue-300 text-white justify-center items-center transition-all duration-300 bottom-5">
+        <i class="fa-solid fa-arrow-up text-base"></i>
+    </button>
+    <!-- Back To Top End -->
+
+    <!-- Animation on Scroll JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="module">
+        AOS.init();
+    </script>
+</body>
+
+</html>

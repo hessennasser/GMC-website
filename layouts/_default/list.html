@@ -1,0 +1,90 @@
+{{ define "main" }}
+
+<!-- get image from image parameter in the content page -->
+{{ with .Params.image }}
+{{ $image := resources.Get . }}
+{{ with $image }}
+<section
+    class="sticky top-0 bg-amber-500/5 py-36 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
+    style="background-image:url('{{ .RelPermalink | relURL }}')">
+    {{ else }}
+    <!-- Default image URL -->
+    {{ $defaultImage := resources.Get "images/hero-bg.jpg" }}
+    {{ with $defaultImage }}
+    <section
+        class="sticky top-0 bg-amber-500/5 py-36 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
+        style="background-image:url('{{ .RelPermalink | relURL }}')">
+        {{ end }}
+        {{ end }}
+        {{ else }}
+        <!-- Default image URL -->
+        {{ $defaultImage := resources.Get "images/hero-bg.jpg" }}
+        {{ with $defaultImage }}
+        <!-- main section start -->
+        <section
+            class="sticky top-0 bg-amber-500/5 py-36 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
+            style="background-image:url('{{ .RelPermalink | relURL }}')">
+            {{ end }}
+            {{ end }}
+
+            <!-- title Of Page -->
+            <h1
+                class="text-3xl md:text-5xl text-white font-medium text-center w-fit mx-auto relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+                {{ .Title }}
+            </h1>
+
+            <div class="container text-center">
+                <!-- Title -->
+                <h2 class="md:text-5xl text-3xl text-white font-medium my-5">{{ .Params.sectionTitle }}</h2>
+                <!-- Description -->
+                <h3 class="w-full md:w-3/4 mx-auto text-lg font-medium mt-6 mb-20 text-slate-100">
+                    {{ .Params.sectionDescription }}
+                </h3>
+            </div>
+        </section>
+        <!-- main section end -->
+
+        <!-- content section -->
+        <section class="py-5 relative z-10 bg-[#f9fafb]">
+            <h2
+                class="
+            text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-5
+            relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+                {{ .Params.sectionTitle }}
+            </h2>
+            <div class="container">
+                <!-- content from the file _index.md -->
+                {{ .Content }}
+                <!-- render all products -->
+                <ul class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {{ $duration := 500 }}
+                    {{ range .Pages }}
+                    {{ if .Params.title }}
+                    <li class="group flex flex-col bg-amber-200 relative rounded-md overflow-hidden shadow-md hover:-translate-y-2 duration-300 hover:shadow-xl"
+                        data-aos="fade-up" data-aos-duration="{{ $duration }}">
+                        <a href="{{ .RelPermalink | relURL }}" class="w-full h-full">
+                            {{ with .Params.image }}
+                            {{ $image := resources.Get . }}
+                            {{ with $image }}
+                            <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}"
+                                class="w-full h-64 object-cover group-hover:scale-105 duration-300">
+                            {{ end }}
+                            {{ end }}
+                            <h4 class="absolute w-full bottom-0 left-0 py-2 text-lg text-center bg-white">
+                                {{ .Params.title }}
+                            </h4>
+                        </a>
+                    </li>
+                    {{ end }}
+                    {{ $duration = add $duration 200 }}
+                    {{ end }}
+                </ul>
+            </div>
+        </section>
+
+        <!-- ========== Advantages Start ========== -->
+        {{ partial "advantages.html" (dict "advantagesTitle" .Site.Params.advantagesTitle "advantagesDescription"
+        .Site.Params.advantagesDescription "advantagesContent" .Site.Params.advantagesContent) }}
+        <!-- ========== Advantages End ========== -->
+
+        {{ end }}
