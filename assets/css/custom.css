@@ -15,6 +15,9 @@ html[dir='rtl'] body {
     font-family: 'Cairo', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 .hero-section {
     background-repeat: no-repeat;
