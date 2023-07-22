@@ -3,7 +3,7 @@
     id="header">
     <div class="container flex items-center justify-between relative">
         <div class="relative z-50">
-            <a href="{{ .Site.Params.logoName.url }}" class="text-lg md:text-2xl font-bold">
+            <a href="{{ .Site.Params.logoName.url }}" class="text-md sm:text-lg md:text-2xl font-bold">
                 {{ .Site.Params.logoName.name }}
             </a>
         </div>
@@ -14,17 +14,17 @@
                     <a href="{{ .url }}" class="">{{ .name }}</a>
                 </li>
                 {{ end }}
-                <!-- Language Selector Button -->
-                <li class="ml-4">
-                    <button onclick="changeLanguage()">
-                        <i class="fa-solid fa-globe mx-2"></i> {{ if eq $.Site.Language.Lang "en" }}AR{{ else }}EN{{ end }}
-                    </button>
-                </li>
             </ul>
+            <!-- Language Selector Button -->
         </nav>
-        <button class="md:hidden text-2xl relative z-50" id="nav-toggle" aria-label="Open Menu">
-            <i class="fa-solid fa-bars" id="nav-icon"></i>
-        </button>
+        <div class="flex gap-4 items-center">
+            <button onclick="changeLanguage()" class="text-sm sm:text-md md:mx-5 flex items-center gap-2 mx-3">
+                <i class="fa-solid fa-globe"></i> {{ if eq $.Site.Language.Lang "en" }}AR{{ else }}EN{{ end }}
+            </button>
+            <button class="md:hidden text-2xl relative z-50" id="nav-toggle" aria-label="Open Menu">
+                <i class="fa-solid fa-bars" id="nav-icon"></i>
+            </button>
+        </div>
     </div>
 </header>
 

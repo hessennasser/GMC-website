@@ -11,6 +11,7 @@ navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('show');
     // Handle nav menu icon
     if (navMenu.classList.contains('show')) {
+        header.classList.add('nav-sticky');
         navToggle.setAttribute('aria-label', 'Close Menu');
         navIcon.classList.remove('fa-bars');
         navIcon.classList.add('fa-times');
