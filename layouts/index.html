@@ -109,8 +109,8 @@
             </ul>
             <a href="{{ if eq $.Site.Language.Lang " en" }}/GMC-website/en/products{{ else }}/GMC-website/ar/products{{
                 end }}"
-                class="block w-fit mx-auto my-10 py-3 px-6 rounded border border-black text-white bg-blue-500 hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500">
-                {{ if eq $.Site.Language.Lang "en" }} All Products {{ else }} جميع المنتجات {{ end }}
+                class="block w-fit mx-auto text-md md:text-lg my-10 py-3 px-6 rounded border border-black text-white bg-blue-500 hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500">
+                {{ if eq $.Site.Language.Lang "en" }} All Products {{ else }}جميع المنتجات{{ end }}
             </a>
         </div>
     </section>
@@ -278,47 +278,36 @@
                 <!-- contact Form -->
                 <div class="lg:w-1/2" data-aos="flip-left">
                     <div class="mb-6 relative bg-clip-border rounded-[0.1875rem]">
-                        <form class="py-12">
-                            <div class="flex gap-6">
-                                <div class="md:w-1/2">
-                                    <div class="mb-5">
-                                        <label for="exampleInputName1"
-                                            class="block text-sm font-medium mb-1 text-gray-600">Name <span
-                                                class="text-red-500">*</span></label>
-                                        <input type="text"
-                                            class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
-                                            id="exampleInputName1" placeholder="Your Name">
-                                    </div>
-                                </div>
-                                <div class="md:w-1/2">
-                                    <div class="mb-5">
-                                        <label for="exampleInputName"
-                                            class="block text-sm font-medium mb-1 text-gray-600">Name <span
-                                                class="text-red-500">*</span></label>
-                                        <input type="text"
-                                            class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
-                                            id="exampleInputName" placeholder="Your Name">
-                                    </div>
+                        <form action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="f8eb2d6a-ef98-40fb-b6e7-917148cc3b1e">
+                            <input type="hidden" name="subject" value="New Submission from GMC website" />
+                            <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+                            <div>
+                                <div class="mb-5">
+                                    <label for="exampleInputName1"
+                                        class="block text-sm font-medium mb-1 text-gray-600">Name <span
+                                            class="text-red-500">*</span></label>
+                                    <input type="text" name="name"
+                                        class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                        id="exampleInputName1" placeholder="Your Name">
                                 </div>
                             </div>
-                            <div class="w-full">
-                                <div class="mb-5">
-                                    <label for="exampleInputEmail1"
-                                        class="block text-sm font-medium mb-1 text-gray-600">Email <span
-                                            class="text-red-500">*</span></label>
-                                    <input type="email"
-                                        class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
-                                        id="exampleInputEmail1" placeholder="Your Email">
-                                </div>
-                                <div class="mb-5">
-                                    <label for="exampleFormControlTextarea1"
-                                        class="block text-sm font-medium mb-1 text-gray-600">Message <span
-                                            class="text-red-500">*</span></label>
-                                    <textarea
-                                        class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
-                                        id="exampleFormControlTextarea1" rows="4"
-                                        placeholder="Type Your Massage..."></textarea>
-                                </div>
+                            <div class="mb-5">
+                                <label for="exampleInputEmail1"
+                                    class="block text-sm font-medium mb-1 text-gray-600">Email <span
+                                        class="text-red-500">*</span></label>
+                                <input type="email" name="mail"
+                                    class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                    id="exampleInputEmail1" placeholder="Your Email">
+                            </div>
+                            <div class="mb-5">
+                                <label for="exampleFormControlTextarea1"
+                                    class="block text-sm font-medium mb-1 text-gray-600">Message <span
+                                        class="text-red-500">*</span></label>
+                                <textarea name="message"
+                                    class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                    id="exampleFormControlTextarea1" rows="4"
+                                    placeholder="Type Your Massage..."></textarea>
                             </div>
                             <button type="submit"
                                 class="inline-flex items-center text-sm bg-blue-500 text-white font-medium leading-6 text-center align-middle select-none py-2 px-4 rounded-md transition-all hover:shadow-lg hover:shadow-blue-400/60">
@@ -342,36 +331,42 @@
             </div>
             <!-- contact information -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
-                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="500">
-                    <span
-                        class="flex items-center justify-center w-12 h-12 bg-blue-500/60 rounded-lg relative me-4 shrink-0">
-                        <i class="fa-solid fa-envelope"></i>
-                    </span>
-                    <div class="grow">
-                        <h5 class="text-base text-gray-700">Email</h5>
-                        <span>info@gmc-eg.com</span>
+                <a href="mailto:info@gmc-eg.com">
+                    <div class="flex mb-3" data-aos="fade-up" data-aos-duration="500">
+                        <span
+                            class="flex items-center justify-center w-12 h-12 bg-blue-500/60 rounded-lg relative me-4 shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+                        <div class="grow">
+                            <h5 class="text-base text-gray-700">Email</h5>
+                            <span>info@gmc-eg.com</span>
+                        </div>
                     </div>
-                </div>
-                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
-                    <span
-                        class="flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-lg relative me-4 shrink-0">
-                        <i class="fa-solid fa-phone"></i>
-                    </span>
-                    <div class="grow">
-                        <h5 class="text-base text-gray-700">Phone</h5>
-                        <span>+20 0102 6229 900</span>
+                </a>
+                <a href="tel:+2001026229900">
+                    <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
+                        <span
+                            class="flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-lg relative me-4 shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+                        <div class="grow">
+                            <h5 class="text-base text-gray-700">Phone</h5>
+                            <span>+2001026229900</span>
+                        </div>
                     </div>
-                </div>
-                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="900">
-                    <span
-                        class="flex items-center justify-center w-12 h-12 bg-teal-500/20 rounded-lg relative me-4 shrink-0">
-                        <i class="fa-solid fa-map-marker"></i>
-                    </span>
-                    <div class="grow">
-                        <h5 class="text-base text-gray-700">Address</h5>
-                        <span>Head Office & Factory / Fifth industrial zone, Sadat City , Monofia , Egypt</span>
+                </a>
+                <a href="https://goo.gl/maps/zMBsTfh6MrvfN1Q49" target="_blank" rel="noopener noreferrer">
+                    <div class="flex mb-3" data-aos="fade-up" data-aos-duration="900">
+                        <span
+                            class="flex items-center justify-center w-12 h-12 bg-teal-500/20 rounded-lg relative me-4 shrink-0">
+                            <i class="fa-solid fa-map-marker"></i>
+                        </span>
+                        <div class="grow">
+                            <h5 class="text-base text-gray-700">Address</h5>
+                            <span>Head Office & Factory / Fifth industrial zone, Sadat City , Monofia , Egypt</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -391,44 +386,33 @@
                 <!-- contact form -->
                 <div class="lg:w-1/2" data-aos="flip-left">
                     <div class="mb-6 relative bg-clip-border rounded-[0.1875rem]">
-                        <form class="py-12">
-                            <div class="flex gap-6">
-                                <div class="md:w-1/2">
-                                    <div class="mb-5">
-                                        <label for="first-name"
-                                            class="block text-sm font-medium mb-1 text-gray-600">الاسم الاول<span
-                                                class="text-red-500">*</span></label>
-                                        <input type="text"
-                                            class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
-                                            id="first-name" placeholder="اسمك">
-                                    </div>
-                                </div>
-                                <div class="md:w-1/2">
-                                    <div class="mb-5">
-                                        <label for="last-name"
-                                            class="block text-sm font-medium mb-1 text-gray-600">الاسم الاخير<span
-                                                class="text-red-500">*</span></label>
-                                        <input type="text"
-                                            class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
-                                            id="last-name" placeholder="اسمك">
-                                    </div>
+                        <form action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="f8eb2d6a-ef98-40fb-b6e7-917148cc3b1e">
+                            <input type="hidden" name="subject" value="New Submission from GMC website" />
+                            <input type="hidden" name="redirect" value="https://web3forms.com/success" />
+                            <div>
+                                <div class="mb-5">
+                                    <label for="first-name" class="block text-sm font-medium mb-1 text-gray-600">
+                                        الاسم
+                                        <span class="text-red-500">*</span></label>
+                                    <input type="text" name="name"
+                                        class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                        id="first-name" placeholder="اسمك">
                                 </div>
                             </div>
-                            <div class="w-full">
-                                <div class="mb-5">
-                                    <label for="email" class="block text-sm font-medium mb-1 text-gray-600">البريد
-                                        الإلكتروني <span class="text-red-500">*</span></label>
-                                    <input type="email"
-                                        class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
-                                        id="email" placeholder="بريدك الإلكتروني">
-                                </div>
-                                <div class="mb-5">
-                                    <label for="message" class="block text-sm font-medium mb-1 text-gray-600">الرسالة
-                                        <span class="text-red-500">*</span></label>
-                                    <textarea
-                                        class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
-                                        id="message" rows="4" placeholder="اكتب رسالتك..."></textarea>
-                                </div>
+                            <div class="mb-5">
+                                <label for="email" class="block text-sm font-medium mb-1 text-gray-600">البريد
+                                    الإلكتروني <span class="text-red-500">*</span></label>
+                                <input type="email" name="mail"
+                                    class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                    id="email" placeholder="بريدك الإلكتروني">
+                            </div>
+                            <div class="mb-5">
+                                <label for="message" class="block text-sm font-medium mb-1 text-gray-600">الرسالة
+                                    <span class="text-red-500">*</span></label>
+                                <textarea name="message"
+                                    class="py-2 px-4 leading-6 block w-full border-gray-300 border rounded text-sm focus:border-gray-300 focus:ring-0"
+                                    id="message" rows="4" placeholder="اكتب رسالتك..."></textarea>
                             </div>
                             <button type="submit"
                                 class="inline-flex items-center text-sm bg-blue-500 text-white font-medium leading-6 text-center align-middle select-none py-2 px-4 rounded-md transition-all hover:shadow-lg hover:shadow-blue-400/60">
@@ -452,36 +436,42 @@
             </div>
             <!-- contact information -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
-                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="500">
-                    <span
-                        class="flex items-center justify-center w-12 h-12 bg-blue-500/60 rounded-lg relative me-4 shrink-0">
-                        <i class="fa-solid fa-envelope"></i>
-                    </span>
-                    <div class="grow">
-                        <h5 class="text-base text-gray-700">البريد الإلكتروني</h5>
-                        <span>info@gmc-eg.com</span>
+                <a href="mailto:info@gmc-eg.com">
+                    <div class="flex mb-3" data-aos="fade-up" data-aos-duration="500">
+                        <span
+                            class="flex items-center justify-center w-12 h-12 bg-blue-500/60 rounded-lg relative me-4 shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </span>
+                        <div class="grow">
+                            <h5 class="text-base text-gray-700">البريد الإلكتروني</h5>
+                            <span>info@gmc-eg.com</span>
+                        </div>
                     </div>
-                </div>
-                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
-                    <span
-                        class="flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-lg relative me-4 shrink-0">
-                        <i class="fa-solid fa-phone"></i>
-                    </span>
-                    <div class="grow">
-                        <h5 class="text-base text-gray-700">الهاتف</h5>
-                        <span>+20 0102 6229 900</span>
+                </a>
+                <a href="tel:+2001026229900">
+                    <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
+                        <span
+                            class="flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-lg relative me-4 shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </span>
+                        <div class="grow">
+                            <h5 class="text-base text-gray-700">الهاتف</h5>
+                            <span>+20 0102 6229 900</span>
+                        </div>
                     </div>
-                </div>
-                <div class="flex mb-3" data-aos="fade-up" data-aos-duration="900">
-                    <span
-                        class="flex items-center justify-center w-12 h-12 bg-teal-500/20 rounded-lg relative me-4 shrink-0">
-                        <i class="fa-solid fa-map-marker"></i>
-                    </span>
-                    <div class="grow">
-                        <h5 class="text-base text-gray-700">العنوان</h5>
-                        <span>المكتب الرئيسي والمصنع / المنطقة الصناعية الخامسة، مدينة السادات، المنوفية، مصر</span>
+                </a>
+                <a href="https://goo.gl/maps/zMBsTfh6MrvfN1Q49" target="_blank" rel="noopener noreferrer">
+                    <div class="flex mb-3" data-aos="fade-up" data-aos-duration="900">
+                        <span
+                            class="flex items-center justify-center w-12 h-12 bg-teal-500/20 rounded-lg relative me-4 shrink-0">
+                            <i class="fa-solid fa-map-marker"></i>
+                        </span>
+                        <div class="grow">
+                            <h5 class="text-base text-gray-700">العنوان</h5>
+                            <span>المكتب الرئيسي والمصنع / المنطقة الصناعية الخامسة، مدينة السادات، المنوفية، مصر</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>

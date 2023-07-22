@@ -14,6 +14,12 @@
                     <a href="{{ .url }}" class="">{{ .name }}</a>
                 </li>
                 {{ end }}
+                <!-- Language Selector Button -->
+                <li class="ml-4">
+                    <button onclick="changeLanguage()">
+                        <i class="fa-solid fa-globe mx-2"></i> {{ if eq $.Site.Language.Lang "en" }}AR{{ else }}EN{{ end }}
+                    </button>
+                </li>
             </ul>
         </nav>
         <button class="md:hidden text-2xl relative z-50" id="nav-toggle" aria-label="Open Menu">
@@ -21,3 +27,27 @@
         </button>
     </div>
 </header>
+
+<script>
+    // JavaScript function to handle language change
+    function changeLanguage() {
+        // Get the current URL
+        let currentUrl = window.location.href;
+
+        // Check if "en" is present in the URL
+        if (currentUrl.includes("/en/")) {
+            // Replace "en" with "ar" in the URL
+            let newUrl = currentUrl.replace("/en/", "/ar/");
+
+            // Redirect to the new URL
+            window.location.href = newUrl;
+        }
+        else if (currentUrl.includes("/ar/")) {
+            // Replace "en" with "ar" in the URL
+            let newUrl = currentUrl.replace("/ar/", "/en/");
+
+            // Redirect to the new URL
+            window.location.href = newUrl;
+        }
+    }
+</script>

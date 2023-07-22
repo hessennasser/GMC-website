@@ -21,10 +21,12 @@
                             {{ if eq $.Site.Language.Lang "en" }} Get in touch {{ else }} تواصل معنا {{ end }}
                         </h3>
                         {{ range .Site.Params.contactInfo }}
-                        <div class="flex items-center gap-2">
-                            <i class="{{.icon}} text-gray-400"></i>
-                            <p class="text-sm">{{.value}}</p>
-                        </div>
+                        <a href="{{.link}}" target="{{.target}}">
+                            <div class="flex items-center gap-2">
+                                <i class="{{.icon}} text-gray-400"></i>
+                                <p class="text-sm">{{.value}}</p>
+                            </div>
+                        </a>
                         {{end}}
                     </div>
                     <!-- website Languages -->
@@ -48,7 +50,7 @@
 
         <div class="flex gap-5 justify-between sm:items-center flex-col sm:flex-row pt-5">
             <!-- website menu (pages links) -->
-            <ul class="links flex-col md:flex-row flex gap-3">
+            <ul class="links flex gap-3">
                 {{ range .Site.Params.headerLinks }}
                 <li><a class="uppercase text-xs md:text-sm" href="{{.url}}">{{.name}}</a></li>
                 {{ end }}

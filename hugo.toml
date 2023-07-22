@@ -37,9 +37,9 @@ backgroundImage = 'image/herobg.jpg'
 
             # contact information
             contactInfo = [
-                { icon="fa-solid fa-location-dot", name = "location", value = "Head Office & Factory / Fifth industrial zone, Sadat City , Monofia , Egypt" },
-                { icon="fa-solid fa-phone", name = "Phone Number", value = "002 / 01026229900" },
-                { icon="fa-solid fa-envelope", name = "Email", value = "info@gmc-eg.com" }
+                { icon="fa-solid fa-location-dot", name = "location", value = "Head Office & Factory / Fifth industrial zone, Sadat City , Monofia , Egypt", link="https://goo.gl/maps/zMBsTfh6MrvfN1Q49", target="_blank" },
+                { icon="fa-solid fa-phone", name = "Phone Number", value = "002 / 01026229900", link="tel:+2001026229900", target="_self" },
+                { icon="fa-solid fa-envelope", name = "Email", value = "info@gmc-eg.com", link="mailto:info@gmc-eg.com", target="_self" }
             ]
 
             # advantages section
@@ -80,9 +80,9 @@ backgroundImage = 'image/herobg.jpg'
             
             # contact information
             contactInfo = [
-                { icon="fa-solid fa-location-dot", name = "العنوان", value = "الإدارة و المصنع / مدينة السادات - امتداد المنطقة الصناعية الخامسة - شارع الإرسال" },
-                { icon="fa-solid fa-phone", name = "رقم الهاتف", value = "002 / 01026229900" },
-                { icon="fa-solid fa-envelope", name = "البريد الإلكتروني", value = "info@gmc-eg.com" }
+                { icon="fa-solid fa-location-dot", name = "العنوان", value = "الإدارة و المصنع / مدينة السادات - امتداد المنطقة الصناعية الخامسة - شارع الإرسال", link="https://goo.gl/maps/zMBsTfh6MrvfN1Q49", target="_blank" },
+                { icon="fa-solid fa-phone", name = "رقم الهاتف", value = "002 / 01026229900", link="tel:+2001026229900", target="_self" },
+                { icon="fa-solid fa-envelope", name = "البريد الإلكتروني", value = "info@gmc-eg.com", link="mailto:info@gmc-eg.com", target="_self" }
             ]
 
             # advantages section

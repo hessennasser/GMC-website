@@ -16,7 +16,7 @@ html[dir='rtl'] body {
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
 }
 
 .hero-section {
@@ -39,12 +39,12 @@ header.nav-sticky {
 nav.show {
     display: flex !important;
     background-color: #ffffff;
+    color: #000;
     position: fixed;
-    height: 200px;
-    width: 80%;
-    max-width: 420حء;
+    padding-block: 2rem;
+    width: 100%;
     top: 72px;
-    right: 70px;
+    right: 0;
     align-items: center;
     justify-content: center;
     z-index: 10;
@@ -58,7 +58,7 @@ nav.show ul {
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 1rem;
+    gap: 2rem;
     flex: 0;
 }
 
