@@ -1,0 +1,45 @@
+<!-- import hero section background -->
+{{ $image := resources.Get "images/hero-bg.jpg" }}
+{{ with $image }}
+<section
+    class="hero sticky top-0 min-h-screen flex items-center bg-amber-500/5 py-36 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
+    style="background-image:url('{{.RelPermalink | relURL }}')">
+    {{ end }}
+    <div class="container">
+        <div class=" md:w-2/3 relative z-10">
+            <!-- Title -->
+            <h1 class="md:text-5xl text-3xl text-white font-medium my-5">{{.Site.Params.heroSection.title}}</h1>
+            <!-- Description -->
+            <p class="w-full md:w-3/4 text-lg font-medium mt-6 mb-10 text-slate-100  {{ if eq $.Site.Language.Lang "en"
+                }}pl-5 border-l-2{{ else }} pr-5 border-r-2 {{ end }} border-amber-200">
+                {{.Site.Params.heroSection.description}}</p>
+            <!-- Buttons -->
+            <div class="flex flex-wrap items-center gap-5">
+                <a href="#products"
+                    class="py-3 px-6 rounded border border-black text-white bg-black hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500"><i
+                        class="fa-solid fa-arrow-down me-2"></i>
+                    {{ if eq $.Site.Language.Lang "en" }} View Our Products {{ else }} عرض منتجاتنا {{ end }}
+                </a>
+                <a href="{{ if eq $.Site.Language.Lang "en" }}/GMC-website/en/contact{{ else
+                    }}/GMC-website/ar/contact{{ end }}"
+                    class="py-3 px-6 rounded border border-black hover:border-black hover:bg-black hover:text-white hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500">
+                    {{ if eq $.Site.Language.Lang "en" }} Contact Us {{ else }} اتصل بنا {{ end }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Social Media Icons -->
+    <!-- <div class="absolute end-0 top-1/2 -translate-y-1/2 hidden md:block">
+        <div class="flex flex-col gap-5 px-2">
+            <a href="#"
+                class="text-lg bg-black text-white p-2 rounded-lg hover:bg-amber-300 w-10 h-10 px-2 grid place-content-center"><i
+                    class="fa-brands fa-twitter"></i></a>
+            <a href="#"
+                class="text-lg bg-black text-white p-2 rounded-lg hover:bg-amber-300 w-10 h-10 px-2 grid place-content-center"><i
+                    class="fa-brands fa-facebook"></i></a>
+            <a href="#"
+                class="text-lg bg-black text-white p-2 rounded-lg hover:bg-amber-300 w-10 h-10 px-2 grid place-content-center"><i
+                    class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div> -->
+</section>

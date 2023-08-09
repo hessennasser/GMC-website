@@ -18,7 +18,7 @@
 
     <!-- Link Font awesome by CDN -->
     <script src="https://kit.fontawesome.com/d633f21f4a.js" crossorigin="anonymous"></script>
-    
+
     <!--# Link TailwindCss && CSS File -->
     <!-- resources.Get "style.css" will fetch the style.css file. 
     It will not work if you mention the exact location like "./assets/style.css".-->
@@ -33,6 +33,10 @@
     <!-- Link JS file -->
     {{ $js := resources.Get "js/main.js" | js.Build }}
     <script src="{{$js.Permalink}}" defer></script>
+
+    <!-- Link SwiperJs -->
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://fastly.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 </head>
 

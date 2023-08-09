@@ -44,12 +44,10 @@
         <!-- main section end -->
 
         <!-- content section -->
-        <section class="py-10 relative z-10 bg-[#f9fafb] markdown">
-            <div class="container">
+        <div class="py-10 relative z-10 bg-[#f9fafb] markdown">
                 <!-- content from the file on dir (content/ar & content/en)*.html/md -->
                 {{ .Content }}
-            </div>
-        </section>
+        </div>
         <!-- ========== Advantages Start ========== -->
         {{ partial "advantages.html" (dict "advantagesTitle" .Site.Params.advantagesTitle "advantagesDescription"
         .Site.Params.advantagesDescription "advantagesContent" .Site.Params.advantagesContent) }}

@@ -16,8 +16,9 @@ html[dir='rtl'] body {
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
+
 
 .hero-section {
     background-repeat: no-repeat;
@@ -73,7 +74,21 @@ nav.show,
 
 /* Header end */
 
+/* Hero Section */
+@media (min-width: 1034px) {
+    /* .hero:after {
+        position: absolute;
+        content: "";
+        width: 40%;
+        background: #b7a351db;
+        background: #348895;
+        top: 0;
+        bottom: 0;
+    } */
+}
+
 /* ================================================================= */
+
 /* Makrdown Styles Start */
 .markdown {
     /* Variables */
@@ -226,3 +241,21 @@ nav.show,
 }
 
 /* Makrdown Styles End */
+
+/* contact-us background */
+.contact-us {
+    background: url("https://bootstrapmade.com/demo/templates/Nova/assets/img/contact-bg.png") left top no-repeat;
+    background-size: contain;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.contact-us:before {
+    content: "";
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}

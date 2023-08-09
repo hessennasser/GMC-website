@@ -38,7 +38,8 @@ backgroundImage = 'image/herobg.jpg'
             # contact information
             contactInfo = [
                 { icon="fa-solid fa-location-dot", name = "location", value = "Head Office & Factory / Fifth industrial zone, Sadat City , Monofia , Egypt", link="https://goo.gl/maps/pFUu4icDpY5GWBVb6", target="_blank" },
-                { icon="fa-solid fa-phone", name = "Phone Number", value = "002 / 01026229900", link="tel:+2001026229900", target="_self" },
+                { icon="fa-solid fa-phone", name = "Main Administration", value = "002 / 01026229900", target="_self" },
+                { icon="fa-solid fa-phone", name = "Sales & Acquisitions", value = "002 / 01017070928", target="_self" },
                 { icon="fa-solid fa-envelope", name = "Email", value = "info@gmc-eg.com", link="mailto:info@gmc-eg.com", target="_self" }
             ]
 
@@ -81,7 +82,8 @@ backgroundImage = 'image/herobg.jpg'
             # contact information
             contactInfo = [
                 { icon="fa-solid fa-location-dot", name = "العنوان", value = "الإدارة و المصنع / مدينة السادات - امتداد المنطقة الصناعية الخامسة - شارع الإرسال", link="https://goo.gl/maps/pFUu4icDpY5GWBVb6", target="_blank" },
-                { icon="fa-solid fa-phone", name = "رقم الهاتف", value = "002 / 01026229900", link="tel:+2001026229900", target="_self" },
+                { icon="fa-solid fa-phone", name = "الأدارة الرئيسية", value = "002 / 01026229900", target="_self" },
+                { icon="fa-solid fa-phone", name = "المبيعات", value = "002 / 01017070928", target="_self" },
                 { icon="fa-solid fa-envelope", name = "البريد الإلكتروني", value = "info@gmc-eg.com", link="mailto:info@gmc-eg.com", target="_self" }
             ]
 

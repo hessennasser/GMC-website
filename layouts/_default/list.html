@@ -60,20 +60,38 @@
                     {{ $duration := 500 }}
                     {{ range .Pages }}
                     {{ if .Params.title }}
-                    <li class="group flex flex-col bg-amber-200 relative rounded-md overflow-hidden shadow-md hover:-translate-y-2 duration-300 hover:shadow-xl"
-                        data-aos="fade-up" data-aos-duration="{{ $duration }}">
+                    <li class="group flex flex-col relative rounded-md overflow-hidden" data-aos="fade-up"
+                        data-aos-duration="{{ $duration }}">
                         <a href="{{ .RelPermalink | relURL }}" class="w-full h-full">
                             {{ with .Params.image }}
                             {{ $image := resources.Get . }}
                             {{ with $image }}
                             <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}"
-                                class="w-full h-64 object-cover group-hover:scale-105 duration-300">
+                                class="w-full h-64 object-cover">
                             {{ end }}
                             {{ end }}
-                            <h4 class="absolute w-full bottom-0 left-0 py-2 text-lg text-center bg-white">
-                                {{ .Params.title }}
-                            </h4>
                         </a>
+                        <h4 class="my-2 text-2xl font-semibold">
+                            {{ .Params.title }}
+                        </h4>
+                        <p class="text-sm">
+                            {{ $desc := .Params.desc }}
+                            {{ if gt (len $desc) 100 }}
+                            {{ $truncatedDesc := substr $desc 0 85 }}
+                            {{ $truncatedDesc = printf "%s..." $truncatedDesc }}
+                            {{ $truncatedDesc }}
+                            {{ else }}
+                            {{ $desc }}
+                            {{ end }}
+                        </p>
+                        <a href="{{ .RelPermalink | relURL }}"
+                            class="text-blue-400 mt-3 block {{ if eq $.Site.Language.Lang "en" }} hover:translate-x-2
+                            {{else}} hover:-translate-x-2 {{end}} duration-200">
+                            {{ if eq $.Site.Language.Lang "en" }}
+                            More Details <i class="fa-solid mx-3 fa-arrow-right"></i>
+                            {{ else }}
+                            المزيد من التفاصيل <i class="fa-solid mx-3 fa-arrow-left"></i>
+                            {{ end }}</a>
                     </li>
                     {{ end }}
                     {{ $duration = add $duration 200 }}

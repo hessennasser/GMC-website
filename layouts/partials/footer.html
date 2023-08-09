@@ -4,14 +4,21 @@
 
         <div class="grid grid-cols-4 gap-14">
             <!-- Brand Logo -->
-            <div class="xl:col-span-1 col-span-4 flex items-center justify-start">
-                <!-- import logo image -->
-                {{ $image := resources.Get "images/logo.png" }}
-                {{ with $image }}
-                <img class="w-24 h-24w-24" src="{{ .RelPermalink }}" alt="GTC">
-                {{ end }}
-                <a href="{{ .Site.Params.logoName.url }}" class="text-lg md:text-2xl font-bold">
-                    {{.Site.Params.logoName.name }}</a>
+            <div class="xl:col-span-1 col-span-4 flex items-center justify-start flex-col gap-3">
+                <a href="{{ .Site.Params.logoName.url }}" class="text-lg font-bold flex flex-col items-center justify-start">
+                    <!-- import logo image -->
+                    {{ $image := resources.Get "images/logo.png" }}
+                    {{ with $image }}
+                    <img class="h-24 w-24 mb-4" src="{{ .RelPermalink }}" alt="GTC">
+                    {{ end }}
+                    {{.Site.Params.logoName.name }}
+                </a>
+                <!-- social media -->
+                <div class="flex gap-5">
+                    <a href="#" class="text-2xl"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-2xl"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="text-2xl"><i class="fa-brands fa-instagram"></i></a>
+                </div>
             </div>
             <div class="xl:col-span-3 col-span-4 xl:mx-20 ">
                 <div class="grid md:grid-cols-3 gap-5">
