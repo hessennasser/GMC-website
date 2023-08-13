@@ -5,8 +5,8 @@
     class="hero sticky top-0 min-h-screen flex items-center bg-amber-500/5 py-36 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
     style="background-image:url('{{.RelPermalink | relURL }}')">
     {{ end }}
-    <div class="container">
-        <div class=" md:w-2/3 relative z-10">
+    <div class="container grid grid-cols-3">
+        <div class="col-span-3 md:col-span-2 relative z-10">
             <!-- Title -->
             <h1 class="md:text-5xl text-3xl text-white font-medium my-5">{{.Site.Params.heroSection.title}}</h1>
             <!-- Description -->
@@ -25,21 +25,15 @@
                     class="py-3 px-6 rounded border border-black hover:border-black hover:bg-black hover:text-white hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500">
                     {{ if eq $.Site.Language.Lang "en" }} Contact Us {{ else }} اتصل بنا {{ end }}
                 </a>
+                <a href="#video" class="learn-more" onclick="playVideo()">
+                    <span class="circle" aria-hidden="true">
+                        <span class="icon"><i class="fa-solid fa-play"></i></span>
+                    </span>
+                    <span class="button-text ">
+                        {{ if eq $.Site.Language.Lang "en" }} Watch Now {{ else }} شاهد الان {{ end }}
+                    </span>
+                </a>
             </div>
         </div>
-    </div>
-    <!-- Social Media Icons -->
-    <!-- <div class="absolute end-0 top-1/2 -translate-y-1/2 hidden md:block">
-        <div class="flex flex-col gap-5 px-2">
-            <a href="#"
-                class="text-lg bg-black text-white p-2 rounded-lg hover:bg-amber-300 w-10 h-10 px-2 grid place-content-center"><i
-                    class="fa-brands fa-twitter"></i></a>
-            <a href="#"
-                class="text-lg bg-black text-white p-2 rounded-lg hover:bg-amber-300 w-10 h-10 px-2 grid place-content-center"><i
-                    class="fa-brands fa-facebook"></i></a>
-            <a href="#"
-                class="text-lg bg-black text-white p-2 rounded-lg hover:bg-amber-300 w-10 h-10 px-2 grid place-content-center"><i
-                    class="fa-brands fa-instagram"></i></a>
-        </div>
-    </div> -->
 </section>
+

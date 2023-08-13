@@ -19,6 +19,22 @@ html {
     scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e6bd39;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #282936;
+}
 
 .hero-section {
     background-repeat: no-repeat;
@@ -28,6 +44,10 @@ html {
 
 .hero-section::before {
     background-color: rgba(128, 81, 0, 0.65);
+}
+
+section {
+    scroll-margin-top: 8rem;
 }
 
 /* ================================================================= */
@@ -75,19 +95,91 @@ nav.show,
 /* Header end */
 
 /* Hero Section */
-@media (min-width: 1034px) {
-    /* .hero:after {
-        position: absolute;
-        content: "";
-        width: 40%;
-        background: #b7a351db;
-        background: #348895;
-        top: 0;
-        bottom: 0;
-    } */
+.learn-more {
+    cursor: pointer;
+    position: relative;
+    font-size: inherit;
+    font-family: inherit;
+    width: 12rem;
+}
+
+.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936;
+    border-radius: 1.625rem;
+}
+
+.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 1rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 8px;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin-inline: 1.85rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.learn-more:hover .circle {
+    width: 100%;
+}
+
+.learn-more:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+}
+
+.learn-more:hover .button-text {
+    color: #fff;
 }
 
 /* ================================================================= */
+/* Facebook Video */
+.facebook-responsive {
+    overflow: hidden;
+    padding-bottom: 50.25%;
+    position: relative;
+    right: 50%;
+    transform: translateX(60%);
+}
+
+.facebook-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 80%;
+    position: absolute;
+}
 
 /* Makrdown Styles Start */
 .markdown {
