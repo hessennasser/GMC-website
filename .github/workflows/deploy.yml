@@ -1,0 +1,32 @@
+name: Deploy to cPanel Hosting
+
+on:
+  push:
+    branches:
+      - main  # Change this to your main branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.115.2'  # Change to your Hugo version
+
+      - name: Deploy to cPanel Hosting
+        run: |
+          echo "$SSH_PRIVATE_KEY" > deploy_key
+          chmod 600 deploy_key
+          eval $(ssh-agent -s)
+          ssh-add deploy_key
+          git clone --branch main --recursive git@github.com:hessennasser/GMC-website.git deploy
+          cd deploy
+          hugo --minify
+          rsync -avz --delete public/ gmceg@gmc-eg.com:/public_html/demo
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
