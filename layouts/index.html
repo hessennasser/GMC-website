@@ -37,9 +37,6 @@
     {{ partial "advantages.html" (dict "advantagesTitle" .Site.Params.advantagesTitle "advantagesDescription"
     .Site.Params.advantagesDescription "advantagesContent" .Site.Params.advantagesContent) }}
     <!-- ========== Advantages End ========== -->
-    <!-- Start Our Partners -->
-    {{ partial "ourPartners.html" . }}
-    <!-- End Our Partners -->
 
     <!-- ========== Products Start ========== -->
     <section id="products">
@@ -259,6 +256,10 @@
     </section>
     {{ end }}
     <!-- ========== About Section End ========== -->
+
+    <!-- Start Our Partners -->
+    {{ partial "ourPartners.html" . }}
+    <!-- End Our Partners -->
 
     <!-- ========== Contact Section Start ========== -->
     {{ if eq $.Site.Language.Lang "en" }}
@@ -482,6 +483,7 @@
     {{ end }}
     <!-- ========== Contact Section End ========== -->
 
-    </se>
-    <!-- Home Sections Wrapper End -->
-    {{ end }}
+
+</section>
+<!-- Home Sections Wrapper End -->
+{{ end }}
