@@ -2,7 +2,7 @@
 {{ $image := resources.Get "images/hero-bg.jpg" }}
 {{ with $image }}
 <section
-    class="hero sticky top-0 min-h-screen flex items-center bg-amber-500/5 py-36 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
+    class="hero sticky top-0 min-h-screen flex items-center bg-amber-500/5 py-10 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
     style="background-image:url('{{.RelPermalink | relURL }}')">
     {{ end }}
     <div class="container grid grid-cols-3">

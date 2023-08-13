@@ -170,15 +170,21 @@ nav.show,
     padding-bottom: 50.25%;
     position: relative;
     right: 50%;
-    transform: translateX(60%);
+    transform: translateX(65%);
+    -webkit-transform: translateX(65%);
+    -moz-transform: translateX(65%);
+    -ms-transform: translateX(65%);
+    -o-transform: translateX(65%);
 }
 
 .facebook-responsive iframe {
+    position: absolute;
     left: 0;
     top: 0;
-    height: 100%;
-    width: 80%;
-    position: absolute;
+    border: 3px dotted #000;
+    padding: 1rem !important;
+    width: 70%;
+    height: 80%;
 }
 
 /* Makrdown Styles Start */

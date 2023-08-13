@@ -17,13 +17,18 @@
     <!-- Video Start -->
     <section id="video" class="pt-10">
         <div class="container">
+            <!-- title -->
+            <h2
+                class="text-3xl mb-4 text-gray-600 font-medium text-center w-fit mx-auto relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+                {{ if eq $.Site.Language.Lang "en" }}Demonstration Video{{ else }}فيديو تعريفي{{ end }}
+            </h2>
             <div class="facebook-responsive flex items-center justify-center">
                 <iframe
-                src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fgmc.sadat%2Fvideos%2F1040502466933804%2F&show_text=false&width=560&t=0"
-                width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                allowTransparency="true" allowFullScreen="true">
-            </iframe>
-        </div>
+                    src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fgmc.sadat%2Fvideos%2F1040502466933804%2F&show_text=false&width=560&t=0"
+                    width="560" height="314" style="overflow:hidden" scrolling="no" frameborder="0"
+                    allowTransparency="true" allowFullScreen="true">
+                </iframe>
+            </div>
         </div>
     </section>
     <!-- Video End -->
@@ -477,6 +482,6 @@
     {{ end }}
     <!-- ========== Contact Section End ========== -->
 
-</se>
-<!-- Home Sections Wrapper End -->
-{{ end }}
+    </se>
+    <!-- Home Sections Wrapper End -->
+    {{ end }}
