@@ -8,90 +8,93 @@ allowedExtensions = ["md", "markdown", "html"]
 backgroundImage = 'image/herobg.jpg'
 
 [languages]
-    # English Data
-    [languages.en]
-        contentDir = 'content/en'
-        disabled = false
-        languageName = "English"
-        languageCode = 'en-us'
-        languageDirection = 'ltr'
-        title = "Global Mining Company | GMC"
-        weight = 1
-        [languages.en.params]
-            logoName = {name = "Global Mining Company | GMC", url="/demo/en/"}
-            
-            copyRights = "Copyright 2023 . Global Mining Company | GMC"
-            
-            description = "Our journey in mining began in the 1980s with trading in calcium carbonate, saffron stones, Sinai stones, alabaster marble, and Asyuti stones. The commercial journey with these mining materials continued until the early years of the current century when we started preparing the necessary production lines to produce some mining materials. The factory was inaugurated in 2013 in the fifth industrial zone in Al-Sadat City, equipped with the latest production lines and packaging and shipping facilities. Then, in 2017, in order to meet market requirements and international standards, more production lines were installed to obtain mining products in all required sizes to meet demands in this field. We strive to keep up with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements."
-            
-            # header links
-            headerLinks = [
-                { name = "Home", url = "/demo/en/" },
-                { name = "About Us", url = "/demo/en/about" },
-                { name = "Contact Us", url = "/demo/en/contact" },
-                { name = "Products", url = "/demo/en/products" },
-            ]
+# English Data
+[languages.en]
+contentDir = 'content/en'
+disabled = false
+languageName = "English"
+languageCode = 'en-us'
+languageDirection = 'ltr'
+title = "Global Mining Company | GMC"
+weight = 1
+[languages.en.params]
+logoName = { name = "Global Mining Company | GMC", url = "/demo/en/" }
 
-            # hero section data
-            heroSection = { title = "We provide mining products and services in Egypt.", description = "We are keen to keep pace with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements."}
+copyRights = "Copyright 2023 . Global Mining Company | GMC"
 
-            # contact information
-            contactInfo = [
-                { icon="fa-solid fa-location-dot", name = "location", value = "Head Office & Factory / Fifth industrial zone, Sadat City , Monofia , Egypt", link="https://goo.gl/maps/pFUu4icDpY5GWBVb6", target="_blank" },
-                { icon="fa-solid fa-phone", name = "Main Administration", value = "002 / 01026229900", target="_self" },
-                { icon="fa-solid fa-phone", name = "Sales & Acquisitions", value = "002 / 01017070928", target="_self" },
-                { icon="fa-solid fa-envelope", name = "Email", value = "info@gmc-eg.com", link="mailto:info@gmc-eg.com", target="_self" }
-            ]
+description = "Our journey in mining began in the 1980s with trading in calcium carbonate, saffron stones, Sinai stones, alabaster marble, and Asyuti stones. The commercial journey with these mining materials continued until the early years of the current century when we started preparing the necessary production lines to produce some mining materials. The factory was inaugurated in 2013 in the fifth industrial zone in Al-Sadat City, equipped with the latest production lines and packaging and shipping facilities. Then, in 2017, in order to meet market requirements and international standards, more production lines were installed to obtain mining products in all required sizes to meet demands in this field. We strive to keep up with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements."
 
-            # advantages section
-            advantagesTitle = "Why Choose Us?"
-            advantagesDescription = "We are keen to keep pace with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements."
-            advantagesContent = [
-                {icon="fa-solid fa-check", title="Quality", description="We are keen to keep pace with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements."},
-                {icon="fa-solid fa-lightbulb", title="Experience", description="Our journey in mining began in the 1980s with trading in calcium carbonate, saffron stones, Sinai stones, alabaster marble, and Asyuti stones. The commercial journey with these mining materials continued until the early years of the current century when we started preparing the necessary production lines to produce some mining materials."},
-                {icon="fa-solid fa-hands-helping", title="Customer Service", description="We strive to keep up with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements."}
-            ]
+# header links
+headerLinks = [
+    { name = "Home", url = "/demo/en/" },
+    { name = "Products", url = "/demo/en/products" },
+    { name = "About Us", url = "/demo/en/about" },
+    { name = "Contact Us", url = "/demo/en/contact" },
+]
 
-    # Arabic Data
-    [languages.ar]
-        contentDir = 'content/ar'
-        disabled = false
-        languageCode = 'ar'
-        languageDirection = 'rtl'
-        title = "شركة التعدين العالمية | GMC"
-        languageName = "Arabic"
-        weight = 2
-        [languages.ar.params]
-            logoName = {name = "شركة التعدين العالمية | GMC", url="/demo/ar/"}
+# hero section data
+heroSection = { title = "Welcome to", titleTwo = "Global Mining Company", titleThree = "Your Trusted Partner.", description = "With over 10 years of experience in manufacturing and supplying raw materials, Global Mining ensures your sense of security when it comes to the quality and value embedded in each of its products. We guarantee sustainable high quality, thanks to our global performance indicators system. This system, coupled with the grace of God, ensures that your products remain the best and most enduring in quality." }
 
-            copyRights = "جميع الحقوق محفوظة 2023 . شركة التعدين العالمية | GMC"
 
-            description = "بدأ رحلتنا مع التعدين في ثمانينات القرن الماضي بالتجارة في كربونات الكالسيوم وحصوة الزعفران وحصوة سيناء وكسر الرخام الألابستر والأسيوطي ، وظلت الرحلة التجارية مع هذه الخامات التعدينية حتى أوائل القرن الحالي حيث بدأنا في تجهيز خطوط الإنتـاج اللازمة لإنتاج بعض الخامات التعدينية ، فافتتح المصنع في عام ٢٠١٣ بالمنطقة الصناعية الخامسة بمدينة السادات ، بأحدث خطوط الإنتاج والتجهيزات اللازمة للتعبئة والشحن .ثم وفي عام ٢٠١٧، ومن أجل تلبية متطلبات السوق والمعايير العالمية ، تم تركيب أكثر من خط إنتاج لنحصل على المنتجات التعدينية بجميع المقاسات المطلوبة لكي نلبي الطلبات في هذا المجال .نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية العالمية مما يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام."
+# contact information
+contactInfo = [
+    { icon = "fa-solid fa-location-dot", name = "location", value = "Fifth industrial zone, Sadat City , Monofia , Egypt", link = "https://goo.gl/maps/pFUu4icDpY5GWBVb6", target = "_blank" },
+    { icon = "fa-solid fa-phone", name = "Main Administration", value = "002 / 01026229900", target = "_self" },
+    { icon = "fa-solid fa-phone", name = "Sales & Acquisitions", value = "002 / 01017070928", target = "_self" },
+    { icon = "fa-solid fa-envelope", name = "Email", value = "info@gmc-eg.com", link = "mailto:info@gmc-eg.com", target = "_self" },
+    { icon = "fa-solid fa-envelope", name = "Email", value = "gmc.sadat@gmail.com", link = "mailto:gmc.sadat@gmail.com", target = "_self" },
+]
 
-            # header links
-            headerLinks = [
-                { name = "الرئيسية", url = "/demo/ar/" },
-                { name = "من نحن", url = "/demo/ar/about" },
-                { name = "اتصل بنا", url = "/demo/ar/contact" },
-                { name = "المنتجات", url = "/demo/ar/products" },
-            ]
-            
-            # hero section data 
-            heroSection = { title = "نقدم منتجات وخدمات تعدينية في مصر.", description = "نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية العالمية مما يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام."}
-            
-            # contact information
-            contactInfo = [
-                { icon="fa-solid fa-location-dot", name = "العنوان", value = "الإدارة و المصنع / مدينة السادات - امتداد المنطقة الصناعية الخامسة - شارع الإرسال", link="https://goo.gl/maps/pFUu4icDpY5GWBVb6", target="_blank" },
-                { icon="fa-solid fa-phone", name = "الأدارة الرئيسية", value = "002 / 01026229900", target="_self" },
-                { icon="fa-solid fa-phone", name = "المبيعات", value = "002 / 01017070928", target="_self" },
-                { icon="fa-solid fa-envelope", name = "البريد الإلكتروني", value = "info@gmc-eg.com", link="mailto:info@gmc-eg.com", target="_self" }
-            ]
+# advantages section
+advantagesTitle = "Why Choose Us?"
+advantagesDescription = "We are keen to keep pace with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements."
+advantagesContent = [
+    { imagePath = "images/advantages/image-1.jpg", icon = "fa-solid fa-check", title = "Quality", description = "We are keen to keep pace with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements." },
+    { imagePath = "images/advantages/image-2.jpg", icon = "fa-solid fa-lightbulb", title = "Experience", description = "Our journey in mining began in the 1980s with trading in calcium carbonate, saffron stones, Sinai stones, alabaster marble, and Asyuti stones. The commercial journey with these mining materials continued until the early years of the current century when we started preparing the necessary production lines to produce some mining materials." },
+    { imagePath = "images/advantages/image-3.jpg", icon = "fa-solid fa-hands-helping", title = "Customer Service", description = "We strive to keep up with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements." },
+]
 
-            # advantages section
-            advantagesTitle = "ما يميزنا"
-            advantagesDescription = "نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية العالمية مما يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام."
-            advantagesContent = [
-                {icon="fa-solid fa-check", title="الجودة", description="نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية العالمية مما يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام."},
-                {icon="fa-solid fa-lightbulb", title="الخبرة", description="بدأ رحلتنا مع التعدين في ثمانينات القرن الماضي بالتجارة في كربونات الكالسيوم وحصوة الزعفران وحصوة سيناء وكسر الرخام الألابستر والأسيوطي ، وظلت الرحلة التجارية مع هذه الخامات التعدينية حتى أوائل القرن الحالي حيث بدأنا في تجهيز خطوط الإنتـاج اللازمة لإنتاج بعض الخامات التعدينية."},
-                {icon="fa-solid fa-hands-helping", title="خدمة العملاء", description="نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية العالمية مما يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام."}
-            ]
+# Arabic Data
+[languages.ar]
+contentDir = 'content/ar'
+disabled = false
+languageCode = 'ar'
+languageDirection = 'rtl'
+title = "شركة العالمية للتعدين | GMC"
+languageName = "Arabic"
+weight = 2
+[languages.ar.params]
+logoName = { name = "شركة العالمية للتعدين | GMC", url = "/demo/ar/" }
+
+copyRights = "جميع الحقوق محفوظة 2023 . شركة العالمية للتعدين | GMC"
+
+description = "بدأ رحلتنا مع التعدين في ثمانينات القرن الماضي بالتجارة في كربونات الكالسيوم وحصوة الزعفران وحصوة سيناء وكسر الرخام الألابستر والأسيوطي ، وظلت الرحلة التجارية مع هذه الخامات التعدينية حتى أوائل القرن الحالي حيث بدأنا في تجهيز خطوط الإنتـاج اللازمة لإنتاج بعض الخامات التعدينية ، فافتتح المصنع في عام ٢٠١٣ بالمنطقة الصناعية الخامسة بمدينة السادات ، بأحدث خطوط الإنتاج والتجهيزات اللازمة للتعبئة والشحن .ثم وفي عام ٢٠١٧، ومن أجل تلبية متطلبات السوق والمعايير العالمية ، تم تركيب أكثر من خط إنتاج لنحصل على المنتجات التعدينية بجميع المقاسات المطلوبة لكي نلبي الطلبات في هذا المجال .نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية العالمية مما يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام."
+
+# header links
+headerLinks = [
+    { name = "الرئيسية", url = "/demo/ar/" },
+    { name = "المنتجات", url = "/demo/ar/products" },
+    { name = "من نحن", url = "/demo/ar/about" },
+    { name = "تواصل معنا", url = "/demo/ar/contact" },
+]
+
+# hero section data 
+heroSection = { title = "أهلا وسهلاً بك في", titleTwo = "العالمية للتعدين", titleThree = "شريكك الأمين.", description = "العالمية للتعدين خبرة أكثر من 10 سنوات في تصنيع وتوريد المواد الخام الأولية ، وبالتالي التعامل معها يجعلك تشعر بالأمان من ناحية الجودة والقيمة التي بداخل كل منتج من منتجاتها ، نضمن لك جودة عالية مستدامة ، وذلك بفضل الله ثم بوجود نظام مؤشرات الأداء العالمي الذي نعمل به ، مما يجعل جودة منتجاتك الأفضل و الأدوم ." }
+
+# contact information
+contactInfo = [
+    { icon = "fa-solid fa-location-dot", name = "العنوان", value = "مدينة السادات - امتداد المنطقة الصناعية الخامسة - شارع الإرسال", link = "https://goo.gl/maps/pFUu4icDpY5GWBVb6", target = "_blank" },
+    { icon = "fa-solid fa-phone", name = "الإدارة الرئيسية", value = "01026229900 / 002", target = "_self" },
+    { icon = "fa-solid fa-phone", name = "المبيعات", value = "01017070928 / 002", target = "_self" },
+    { icon = "fa-solid fa-envelope", name = "البريد الإلكتروني", value = "info@gmc-eg.com", link = "mailto:info@gmc-eg.com", target = "_self" },
+    { icon = "fa-solid fa-envelope", name = "البريد الإلكتروني", value = "gmc.sadat@gmail.com", link = "mailtogmc.sadat@gmail.com", target = "_self" },
+]
+
+# advantages section
+advantagesTitle = "ما يميزنا"
+advantagesDescription = "نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية العالمية مما يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام."
+advantagesContent = [
+    { imagePath = "images/advantages/image-1.jpg", icon = "fa-solid fa-check", title = "الجودة", description = "نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية العالمية مما يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام." },
+    { imagePath = "images/advantages/image-2.jpg", icon = "fa-solid fa-lightbulb", title = "الخبرة", description = "بدأ رحلتنا مع التعدين في ثمانينات القرن الماضي بالتجارة في كربونات الكالسيوم وحصوة الزعفران وحصوة سيناء وكسر الرخام الألابستر والأسيوطي ، وظلت الرحلة التجارية مع هذه الخامات التعدينية حتى أوائل القرن الحالي حيث بدأنا في تجهيز خطوط الإنتـاج اللازمة لإنتاج بعض الخامات التعدينية." },
+    { imagePath = "images/advantages/image-3.jpg", icon = "fa-solid fa-hands-helping", title = "خدمة العملاء", description = "نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية العالمية مما يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام." },
+]

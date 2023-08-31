@@ -4,15 +4,12 @@
 {{ $logoName := .Site.Params.logoName }}
 {{ $description := .Site.Params.description }}
 
-
 <!-- ========== Hero section Start ========== -->
 {{ partial "heroSection.html" . }}
 <!-- ========== Hero section End ========== -->
 
-
-
 <!-- Home Sections Wrapper Start -->
-<section class="relative z-10 rounded-t-[3.5rem] overflow-hidden bg-[#f9fafb] flex flex-col gap-14">
+<section class="relative z-10 rounded-t-[3.5rem] overflow-hidden bg-[#f9fafb] flex flex-col gap-8">
 
     <!-- Video Start -->
     <section id="video" class="pt-10">
@@ -33,10 +30,61 @@
     </section>
     <!-- Video End -->
 
-    <!-- ========== Advantages Start ========== -->
-    {{ partial "advantages.html" (dict "advantagesTitle" .Site.Params.advantagesTitle "advantagesDescription"
-    .Site.Params.advantagesDescription "advantagesContent" .Site.Params.advantagesContent) }}
-    <!-- ========== Advantages End ========== -->
+    <!-- ========== About Section Start ========== -->
+    {{ if eq $.Site.Language.Lang "en" }}
+    <!-- About - EN -->
+    <section>
+        <!-- title -->
+        <h2
+            class="
+            text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-8
+            relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+            About Us
+        </h2>
+        <div class="container flex flex-col gap-2">
+            <h2 class="text-xl text-center">
+                We are the leading Global Mining Company in the field of mining. We have high and distinguished
+                expertise in
+                manufacturing raw materials. Through our partnerships with many local and international factories.
+            </h2>
+            <h2 class="text-xl text-center">
+                We have achieved many great successes with numerous clients, both locally and internationally. Our
+                products are
+                characterized by high quality and reasonable prices. We have earned the trust of customers by
+                maintaining
+                quality and adhering to all contracts and commitments.
+            </h2>
+        </div>
+
+    </section>
+    {{ else }}
+    <!-- About AR -->
+    <section>
+        <!-- title -->
+        <h2
+            class="
+            text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-8
+            relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+            من نحن
+        </h2>
+        <div class="container flex flex-col gap-2">
+            <h2 class="text-xl text-center">
+                نحن شركة العالمية للتعدين الرائدة في مجال التعدين ، لدينا خبرات عالية ومميزة في تصنيع المواد الخام
+                الأولية
+                من خلال شراكتنا مع كثير من المصانع المحلية والدولية .
+            </h2>
+            <h2 class="text-xl text-center">
+                لقد حققنا الكثير من النجاحات الكبيرة مع الكثير من العملاء سواء على الصعيد المحلي أو الدولي
+                منتجاتنا تتميز بالجودة العالية والسعر المناسب وحصلنا على ثقة العملاء من خلال الثبات على الجودة والإلتزام
+                بكافة التعاقدات والإلتزامات .
+            </h2>
+        </div>
+        <!-- content -->
+        <div class="container">
+        </div>
+    </section>
+    {{ end }}
+    <!-- ========== About Section End ========== -->
 
     <!-- ========== Products Start ========== -->
     <section id="products">
@@ -48,8 +96,13 @@
             </h2>
             <!-- description -->
             <p class="text-center text-gray-500 mt-2 mb-10">
-                {{ if eq $.Site.Language.Lang "en" }}A distinguished group of our products{{ else }}مجموعه مميزه من
-                منتجات التعدين لدينا{{ end }}
+                {{ if eq $.Site.Language.Lang "en" }}
+                Product names might be similar, but the essence varies from one company to another. Our products uphold
+                global standards of quality, ensuring excellent and sustainable quality for your product.
+                {{ else }}
+                تتشابه مسميات المنتجات ، ويختلف الجوهر من شركة لأخرى
+                منتجاتنا ذات جودة بمعايير عالمية نضمن لك بها جودة ممتازة ومستدامة لمنتجك
+                {{ end }}
             </p>
             <!-- products List -->
             <ul class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
@@ -61,7 +114,7 @@
                 {{ end }}
                 {{ $latestProducts := slice }}
                 {{ range $products }}
-                {{ if lt (len $latestProducts) 8 }}
+                {{ if and (lt (len $latestProducts) 4) (.Params.feature) }}
                 {{ $latestProducts = $latestProducts | append . }}
                 {{ end }}
                 {{ end }}
@@ -69,12 +122,11 @@
                 {{ range $latestProducts }}
                 <li class="group flex flex-col relative rounded-md overflow-hidden" data-aos="fade-up"
                     data-aos-duration="{{ $duration }}">
-                    <a href="{{ .RelPermalink | relURL }}" class="w-full h-full">
+                        <a href="{{ .RelPermalink | relURL }}" class="w-full h-full">
                         {{ with .Params.image }}
                         {{ $image := resources.Get . }}
                         {{ with $image }}
-                        <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}"
-                            class="w-full h-64 object-cover">
+                        <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}" class="h-64 object-contain">
                         {{ end }}
                         {{ end }}
                     </a>
@@ -99,163 +151,22 @@
                         {{ else }}
                         المزيد من التفاصيل <i class="fa-solid mx-3 fa-arrow-left"></i>
                         {{ end }}</a>
-                </li>
-                {{ $duration = add $duration 200 }}
-                {{ end }}
-            </ul>
-            <a href="{{ if eq $.Site.Language.Lang "en" }}/demo/en/products{{ else }}/demo/ar/products{{
-                end }}"
-                class="block w-fit mx-auto text-md md:text-lg my-10 py-3 px-6 rounded border border-black text-white bg-blue-500 hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500">
-                {{ if eq $.Site.Language.Lang "en" }} All Products {{ else }}جميع المنتجات{{ end }}
-            </a>
-        </div>
-    </section>
-    <!-- ========== Products End ========== -->
+                    </li>
+                    {{ $duration = add $duration 200 }}
+                    {{ end }}
+                </ul>
+                <a href="{{ if eq $.Site.Language.Lang "en" }}/demo/en/products{{ else }}/demo/ar/products{{ end }}"
+                    class="block w-fit mx-auto text-md md:text-lg my-10 py-3 px-6 rounded border border-black text-white bg-blue-500 hover:shadow-lg hover:shadow-black/50 focus:outline focus:outline-black/50 transition-all duration-500">
+                    {{ if eq $.Site.Language.Lang "en" }} All Products {{ else }}جميع المنتجات{{ end }}
+                </a>
+            </div>
+        </section>
+            <!-- ========== Products End ========== -->
 
-    <!-- ========== About Section Start ========== -->
-    {{ if eq $.Site.Language.Lang "en" }}
-    <!-- About - EN -->
-    <section>
-        <!-- title -->
-        <h2
-            class="
-            text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-8
-            relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
-            About Us
-        </h2>
-        <!-- content -->
-        <div class="container">
-            <div class="grid gap-10 grid-cols-1 md:grid-cols-2">
-                <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
-                    data-aos="fade-up">
-                    <h2 class="text-2xl font-bold border-b pb-2">Our Mission</h2>
-                    <p>Our mission summarizes how we meet the requirements and expectations of our clients and share in
-                        business
-                        development through a partnership pattern.</p>
-                    <p>We always consider the strategic relations of different members in our process, including
-                        clients,
-                        suppliers,
-                        and our factory teamwork.</p>
-                </div>
-                <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
-                    data-aos="fade-up">
-                    <h2 class="text-2xl font-bold border-b pb-2">Our Vision</h2>
-                    <p>To be the best quality provider of mining products in Egypt and always keep up with new standards
-                        and
-                        techniques for
-                        our global markets in partnership with our clients.</p>
-                    <p>We will continue to provide support and maintain strong communication with our clients,
-                        suppliers,
-                        and
-                        our
-                        teamwork
-                        employees.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    {{ else }}
-    <!-- About AR -->
-    <section>
-        <!-- title -->
-        <h2
-            class="
-            text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-8
-            relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
-            من نحن
-        </h2>
-        <!-- content -->
-        <div class="container">
-            <div class="grid gap-10 grid-cols-1 md:grid-cols-2 justify-items-center">
-                <div class="col-span-2 p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
-                    data-aos="fade-up">
-                    <h2 class="text-2xl font-bold border-b pb-2">بدايـه الطريق</h2>
-                    <h3>
-                        بدأ رحلتنا مع التعدين في ثمانينات القرن الماضي بالتجارة في كربونات الكالسيوم وحصوة الزعفران
-                        وحصوة
-                        سيناء وكسر
-                        الرخام الألابستر والأسيوطي ، وظلت الرحلة التجارية مع هذه الخامات التعدينية حتى أوائل القرن
-                        الحالي
-                        حيث بدأنا
-                        في تجهيز خطوط الإنتـاج اللازمة لإنتاج بعض الخامات التعدينية ، فافتتح المصنع في عام ٢٠١٣ بالمنطقة
-                        الصناعية
-                        الخامسة بمدينة السادات ، بأحدث خطوط الإنتاج والتجهيزات اللازمة للتعبئة والشحن .
-                    </h3>
-                    <h3>
-                        ثم وفي عام ٢٠١٧، ومن أجل تلبية متطلبات السوق والمعايير العالمية ، تم تركيب أكثر من خط إنتاج
-                        لنحصل
-                        على
-                        المنتجات التعدينية بجميع المقاسات المطلوبة لكي نلبي الطلبات في هذا المجال .
-                    </h3>
-                    <h3>
-                        نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية
-                        العالمية مما
-                        يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام.
-                    </h3>
-                </div>
-                <div class="col-span-2 grid gap-10 grid-cols-1 md:grid-cols-2 justify-items-center">
-                    <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
-                        data-aos="fade-up">
-                        <h2 class="text-2xl font-bold border-b pb-2">مهمتنا</h2>
-                        <h3>
-                            تنحصر مهمتنا في التميز والتفوق في تلبية توقعات مساهمي وأصحاب العلاقة في شركتنا إضافة إلى
-                            تقديم
-                            خدماتنا
-                            لمجتمعنا من خلال مساهمتنا في أن نكون عنصرا فاعلا في تنميتها.
-                        </h3>
-                        <h3>
-                            نحقق مهمتنا هذه بالتعاون والتنسيق المتلازمين مع شركائنا المحليين والعالميين من البلدان الذين
-                            نصدر
-                            إليها ،
-                            وكذلك بتطوير شركاتنا الاستراتيجية مع عملائنا وموردينا الكرام ، إضافة إلى تسخير آخر التقنيات
-                            وتوفير
-                            فرص عمل
-                            صحية تتوافق مع متطلبات موظفينا الطبيعية والعاطفية والذهنية والروحية ، ملبّين بذلك متطلبات
-                            وتطلعات
-                            جميع أصحاب
-                            العلاقة بشركتنا.
-                        </h3>
-                    </div>
-                    <div class="p-6 bg-white rounded-md shadow-md hover:shadow-xl transition-all duration-500 aos-init aos-animate"
-                        data-aos="fade-up">
-                        <h2 class="text-2xl font-bold border-b pb-2">رؤيتنا</h2>
-                        <h3>
-                            رؤيتنا هي أن نبقى المورد المتميز والأهم لكربونات الكالسيوم وبقية الخامات التعدينية في
-                            جمهورية
-                            مصر
-                            العربية ،
-                            وتعزيز خدماتنا في الدول التي نصدر لها ، ومن ثم تطوير أسواقنا عالميا ، وسنحقق أهدافنا بعون
-                            الله
-                            بالنمو الذاتي
-                            والاستحواذ والتطور المستمر ، بشراكة حقيقية مع عملائنا وموردينا الاستراتيجيين.
-                        </h3>
-                        <h3>
-                            سنلبي المتطلبات المتغيرة لصناعتنا من خلال مرونتنا وسياساتنا التمكينة والابتكارية ، تماشيا مع
-                            أعلى
-                            درجات
-                            الكفاءة المهنية.
-                        </h3>
-                        <h3>
-                            سنحافظ على وندعم قنوات التواصل مع جمهورنا وعملائنا وموردينا وجميع أصحاب العلاقة بشركتنا ،
-                            بغية
-                            أن
-                            نلبي
-                            تطلعاتهم وتوقعاتهم بأمثل وأفضل الأساليب.
-                        </h3>
-                        <h3>
-                            سنقدم مناخ عمل متميزا باحترافية لجميع موظفينا ، آخذين بالاعتبار العوامل البيئية والمناخية
-                            إضافة
-                            إلى
-                            إرثنا
-                            الذي هو موضع تقديرنا واحترامنا.
-                        </h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    {{ end }}
-    <!-- ========== About Section End ========== -->
+    <!-- ========== Advantages Start ========== -->
+    {{ partial "advantages.html" (dict "advantagesTitle" .Site.Params.advantagesTitle "advantagesDescription"
+    .Site.Params.advantagesDescription "advantagesContent" .Site.Params.advantagesContent) }}
+    <!-- ========== Advantages End ========== -->
 
     <!-- Start Our Partners -->
     {{ partial "ourPartners.html" . }}
@@ -273,7 +184,7 @@
                 Contact Us
             </h2>
             <div class="container">
-                <div class="grid md:grid-cols-2 gap-5 align-items-center">
+                <div class="grid md:grid-cols-2 gap-5 align-items-center text-slate-900">
                     <!-- contact information -->
                     <div class="flex flex-col gap-10 mt-10">
                         <a style="text-decoration: none;" href="mailto:info@gmc-eg.com">
@@ -282,33 +193,35 @@
                                     class="flex items-center justify-center w-12 h-12 bg-blue-500/60 rounded-lg relative me-4 shrink-0">
                                     <i class="fa-solid fa-envelope"></i>
                                 </span>
-                                <div class="grow">
+                                <div class="grow flex flex-col">
                                     <h5 class="text-base text-gray-700">Email</h5>
                                     <span>info@gmc-eg.com</span>
+                                    <span>gmc.sadat@gmail.com</span>
                                 </div>
                             </div>
                         </a>
-                        <a style="text-decoration: none;" href="tel:+2001026229900">
-                            <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
-                                <span
-                                    class="flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-lg relative me-4 shrink-0">
-                                    <i class="fa-solid fa-phone"></i>
-                                </span>
-                                <div class="grow">
-                                    <h5 class="text-base text-gray-700">Main Administration</h5>
-                                    <span>+2001026229900</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a style="text-decoration: none;" href="tel:+2001026229900">
+
+                        <a style="text-decoration: none;" href="tel:002 / 01026229900">
                             <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
                                 <span
                                     class="flex items-center justify-center w-12 h-12 bg-green-800/20 rounded-lg relative me-4 shrink-0">
                                     <i class="fa-solid fa-phone"></i>
                                 </span>
                                 <div class="grow">
-                                    <h5 class="text-base text-gray-700">Sales & Acquisitions</h5>
-                                    <span>+2001017070928</span>
+                                    <h5 class="text-base">Sales & Acquisitions</h5>
+                                    <span>002 / 01017070928</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a style="text-decoration: none;" href="tel:002 / 01026229900">
+                            <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
+                                <span
+                                    class="flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-lg relative me-4 shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </span>
+                                <div class="grow">
+                                    <h5 class="text-base">Main Administration</h5>
+                                    <span>002 / 01026229900</span>
                                 </div>
                             </div>
                         </a>
@@ -320,9 +233,8 @@
                                     <i class="fa-solid fa-map-marker"></i>
                                 </span>
                                 <div class="grow">
-                                    <h5 class="text-base text-gray-700">Address</h5>
-                                    <span>Head Office & Factory / Fifth industrial zone, Sadat City , Monofia ,
-                                        Egypt</span>
+                                    <h5 class="text-base">Address</h5>
+                                    <span>Sadat City - Extension of the Fifth Industrial Zone - Al-Irsal Street</span>
                                 </div>
                             </div>
                         </a>
@@ -331,7 +243,7 @@
                     <div class="" data-aos="flip-left">
                         <div class="mb-6 relative bg-clip-border rounded-[0.1875rem]">
                             <form action="https://api.web3forms.com/submit" method="POST">
-                                <input type="hidden" name="access_key" value="f8eb2d6a-ef98-40fb-b6e7-917148cc3b1e">
+                                <input type="hidden" name="access_key" value="3d5af27d-92b2-42ff-a076-e0de8060ee51">
                                 <input type="hidden" name="subject" value="New Submission from GMC website" />
                                 <input type="hidden" name="redirect" value="https://web3forms.com/success" />
                                 <div>
@@ -384,7 +296,7 @@
                 تواصل معنا
             </h2>
             <div class="container">
-                <div class="grid md:grid-cols-2 gap-5 align-items-center">
+                <div class="grid md:grid-cols-2 gap-5 align-items-center text-slate-900">
                     <!-- contact information -->
                     <div class="flex flex-col gap-10 mt-10">
                         <a style="text-decoration: none;" href="mailto:info@gmc-eg.com">
@@ -393,46 +305,49 @@
                                     class="flex items-center justify-center w-12 h-12 bg-blue-500/60 rounded-lg relative me-4 shrink-0">
                                     <i class="fa-solid fa-envelope"></i>
                                 </span>
-                                <div class="grow">
+                                <div class="flex flex-col">
                                     <h5 class="text-base text-gray-700">البريد الإلكتروني</h5>
                                     <span>info@gmc-eg.com</span>
+                                    <span>gmc.sadat@gmail.com</span>
                                 </div>
+
                             </div>
                         </a>
-                        <a style="text-decoration: none;" href="tel:+2001026229900">
-                            <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
-                                <span
-                                    class="flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-lg relative me-4 shrink-0">
-                                    <i class="fa-solid fa-phone"></i>
-                                </span>
-                                <div class="grow">
-                                    <h5 class="text-base text-gray-700">الأدارة الرئيسية</h5>
-                                    <span>2001026229900+</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a style="text-decoration: none;" href="tel:+2001017070928">
+
+                        <a style="text-decoration: none;" href="tel:002 / 01017070928">
                             <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
                                 <span
                                     class="flex items-center justify-center w-12 h-12 bg-green-800/20 rounded-lg relative me-4 shrink-0">
                                     <i class="fa-solid fa-phone"></i>
                                 </span>
                                 <div class="grow">
-                                    <h5 class="text-base text-gray-700">المبيعات</h5>
+                                    <h5 class="text-base">المبيعات</h5>
                                     <span>2001017070928+</span>
                                 </div>
                             </div>
-                        </a> <a style="text-decoration: none;" href="https://goo.gl/maps/pFUu4icDpY5GWBVb6"
-                            target="_blank" rel="noopener noreferrer">
+                        </a>
+                        <a style="text-decoration: none;" href="tel:002 / 01026229900">
+                            <div class="flex mb-3" data-aos="fade-up" data-aos-duration="700">
+                                <span
+                                    class="flex items-center justify-center w-12 h-12 bg-orange-500/20 rounded-lg relative me-4 shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </span>
+                                <div class="grow">
+                                    <h5 class="text-base">الإدارة الرئيسية</h5>
+                                    <span>2001026229900+</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a style="text-decoration: none;" href="https://goo.gl/maps/pFUu4icDpY5GWBVb6" target="_blank"
+                            rel="noopener noreferrer">
                             <div class="flex mb-3" data-aos="fade-up" data-aos-duration="900">
                                 <span
                                     class="flex items-center justify-center w-12 h-12 bg-teal-500/20 rounded-lg relative me-4 shrink-0">
                                     <i class="fa-solid fa-map-marker"></i>
                                 </span>
                                 <div class="grow">
-                                    <h5 class="text-base text-gray-700">العنوان</h5>
-                                    <span>المكتب الرئيسي والمصنع / المنطقة الصناعية الخامسة، مدينة السادات، المنوفية،
-                                        مصر</span>
+                                    <h5 class="text-base">العنوان</h5>
+                                    <span>مدينة السادات - امتداد المنطقة الصناعية الخامسة - شارع الإرسال</span>
                                 </div>
                             </div>
                         </a>
@@ -441,7 +356,7 @@
                     <div data-aos="flip-left">
                         <div class="mb-6 relative bg-clip-border rounded-[0.1875rem]">
                             <form action="https://api.web3forms.com/submit" method="POST">
-                                <input type="hidden" name="access_key" value="f8eb2d6a-ef98-40fb-b6e7-917148cc3b1e">
+                                <input type="hidden" name="access_key" value="3d5af27d-92b2-42ff-a076-e0de8060ee51">
                                 <input type="hidden" name="subject" value="New Submission from GMC website" />
                                 <input type="hidden" name="redirect" value="https://web3forms.com/success" />
                                 <div>

@@ -1,0 +1,113 @@
+{{ define "main" }}
+
+<!-- get image from image para in content page -->
+{{ with .Params.image }}
+{{ $image := resources.Get . }}
+{{ with $image }}
+<section
+    class="sticky top-0 bg-amber-500/5 py-36 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
+    style="background-image:url('{{ .RelPermalink | relURL }}')">
+    {{ else }}
+    <!-- Default image URL -->
+    {{ $defaultImage := resources.Get "images/hero-bg.jpg" }}
+    {{ with $defaultImage }}
+    <section
+        class="sticky top-0 bg-amber-500/5 py-36 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
+        style="background-image:url('{{ .RelPermalink | relURL }}')">
+        {{ end }}
+        {{ end }}
+        {{ else }}
+        <!-- Default image URL -->
+        {{ $defaultImage := resources.Get "images/hero-bg.jpg" }}
+        {{ with $defaultImage }}
+        <!-- main section start -->
+        <section
+            class="sticky top-0 bg-amber-500/5 py-36 hero-section z-[1] before:absolute before:inset-0 before:z-[-1] text-white"
+            style="background-image:url('{{ .RelPermalink | relURL }}')">
+            {{ end }}
+            {{ end }}
+
+            <!-- title Of Page -->
+            <h1
+                class="text-3xl md:text-5xl text-white font-medium text-center w-fit mx-auto relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+                {{ .Title }}
+            </h1>
+            <div class="container text-center">
+                <!-- Title -->
+                <h2 class="md:text-5xl text-3xl text-white font-medium my-5">{{ .Params.sectionTitle }}</h2>
+                <!-- Description -->
+                <h3 class="w-full md:w-3/4 mx-auto text-lg font-medium mt-6 mb-20 text-slate-100">
+                    {{.Params.sectionDescription}}
+                    {{.Params.desc}}
+                </h3>
+            </div>
+        </section>
+        <!-- main section end -->
+
+        <!-- content section -->
+        <div class="py-2 relative z-10 bg-[#f9fafb] markdown" style="border-radius: 3rem 3rem 0 0;">
+            <!-- content from the file on dir (content/ar & content/en)*.html/md -->
+            <div class="container">
+                {{ .Content }}
+                {{ with .Params.pdf }}
+                <object data="{{ . | relURL }}" type="application/pdf" width="100%" height="450px"
+                    style="margin-inline: auto; height: 450px;margin-block: 1rem;">
+                    <embed src="{{ . | relURL }}" type="application/pdf" width="100%" height="450px">
+                    <p>This browser does not support PDFs. Please download the PDF to view it: <a
+                            href="{{ . | relURL }}">Download PDF</a>.</p>
+                    </embed>
+                </object>
+                {{ end }}
+            </div>
+        </div>
+        <!-- Similar Products section -->
+        <section class="py-5 relative z-10 bg-[#f9fafb]">
+            <h2
+                class="text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-5 relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+                {{ if eq $.Site.Language.Lang "en" }}Similar Products{{ else }}منتجات اخري{{ end }}
+            </h2>
+            <div class="container">
+                <ul class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {{ $currentProductTitle := .Title }}
+                    {{ range .Site.RegularPages }}
+                    {{ if and (.Params.title) (eq .Section "products") (not (eq .Title $currentProductTitle)) }}
+                    {{ $productImage := resources.Get .Params.image }}
+                    <li class="group flex flex-col relative rounded-md overflow-hidden" data-aos="fade-up"
+                        data-aos-duration="500">
+                        <a href="{{ .RelPermalink | relURL }}" class="w-full h-full">
+                            {{ with $productImage }}
+                            <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}"
+                                class="h-64 object-contain">
+                            {{ end }}
+                        </a>
+                        <h4 class="my-2 text-2xl font-semibold">
+                            {{ .Params.title }}
+                        </h4>
+                        {{ with .Params.desc }}
+                        <p class="text-sm">
+                            {{ if gt (len .) 100 }}
+                            {{ $truncatedDesc := substr . 0 85 }}
+                            {{ $truncatedDesc = printf "%s..." $truncatedDesc }}
+                            {{ $truncatedDesc }}
+                            {{ else }}
+                            {{ . }}
+                            {{ end }}
+                        </p>
+                        {{ end }}
+                        <a href="{{ .RelPermalink | relURL }}" class="text-blue-400 mt-3 block duration-200
+                        {{ if eq $.Site.Language.Lang "en" }} hover:translate-x-2 {{ else }} hover:-translate-x-2 {{
+                            end }}">
+                            {{ if eq $.Site.Language.Lang "en" }}
+                            More Details <i class="fa-solid mx-3 fa-arrow-right"></i>
+                            {{ else }}
+                            المزيد من التفاصيل <i class="fa-solid mx-3 fa-arrow-left"></i>
+                            {{end}}    
+                        </a>
+                    </li>
+                    {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+        </section>
+
+        {{ end }}

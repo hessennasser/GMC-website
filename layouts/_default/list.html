@@ -67,7 +67,7 @@
                             {{ $image := resources.Get . }}
                             {{ with $image }}
                             <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}"
-                                class="w-full h-64 object-cover">
+                                class="h-64 object-contain">
                             {{ end }}
                             {{ end }}
                         </a>

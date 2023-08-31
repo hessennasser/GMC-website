@@ -1,11 +1,17 @@
 <header
-    class="light fixed top-0 inset-x-0 flex items-center z-40 w-full lg:bg-transparent text-black text-white lg:text-white transition-all py-5"
+    class="light fixed top-0 inset-x-0 flex items-center z-40 w-full lg:bg-transparent text-black text-white lg:text-white transition-all py-2"
     id="header">
     <div class="container flex items-center justify-between relative">
         <div class="relative z-50">
-            <a href="{{ .Site.Params.logoName.url }}" class="text-md sm:text-lg md:text-2xl font-bold">
-                {{ .Site.Params.logoName.name }}
-            </a>
+            <div class="brand flex items-center justify-center gap-4">
+                {{ $image := resources.Get "images/logo-shape.png" }}
+                {{ with $image }}
+                <img class="w-10 md:w-16 lg:w-20" src="{{ .RelPermalink }}" alt="GTC">
+                {{ end }}
+                <a href="{{ .Site.Params.logoName.url }}" class="text-[12px] sm:text-lg md:text-2xl font-bold">
+                    {{ .Site.Params.logoName.name }}
+                </a>
+            </div>
         </div>
         <nav class="hidden md:block ms-auto" id="nav-menu">
             <ul class="md:flex flex-1 items-center justify-center">
@@ -19,7 +25,8 @@
         </nav>
         <div class="flex gap-4 items-center">
             <button onclick="changeLanguage()" class="text-sm sm:text-md md:mx-5 flex items-center sm:gap-2 sm:mx-3">
-                <i class="fa-solid fa-globe hidden sm:block"></i> {{ if eq $.Site.Language.Lang "en" }}AR{{ else }}EN{{ end }}
+                <i class="fa-solid fa-globe hidden sm:block"></i> {{ if eq $.Site.Language.Lang "en" }}AR{{ else }}EN{{
+                end }}
             </button>
             <button class="md:hidden text-2xl relative z-50" id="nav-toggle" aria-label="Open Menu">
                 <i class="fa-solid fa-bars" id="nav-icon"></i>

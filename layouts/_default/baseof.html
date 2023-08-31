@@ -16,12 +16,14 @@
     <meta name="author" content="Global Mining Co. (GMC) شركة العالمية للتعدين">
     <meta name="robots" content="index, follow">
     <!-- Data When Sharing -->
-    <meta property="og:site_name" content="شركة التعدين العالمية | GMC">
+    <meta property="og:site_name" content="شركة العالمية للتعدين | GMC">
     <meta property="og:description"
         content="بدأ رحلتنا مع التعدين في ثمانينات القرن الماضي بالتجارة في كربونات الكالسيوم وحصوة الزعفران وحصوة سيناء وكسر الرخام الألابستر والأسيوطي ، وظلت الرحلة التجارية مع هذه الخامات التعدينية حتى أوائل القرن الحالي حيث بدأنا في تجهيز خطوط الإنتـاج اللازمة لإنتاج بعض الخامات التعدينية ، فافتتح المصنع في عام ٢٠١٣ بالمنطقة الصناعية الخامسة بمدينة السادات ، بأحدث خطوط الإنتاج والتجهيزات اللازمة للتعبئة والشحن .ثم وفي عام ٢٠١٧، ومن أجل تلبية متطلبات السوق والمعايير العالمية ، تم تركيب أكثر من خط إنتاج لنحصل على المنتجات التعدينية بجميع المقاسات المطلوبة لكي نلبي الطلبات في هذا المجال .نحرص على مواكبة كل جديد والحرص على جودة الخامة ومن ثم التعامل معها مما يؤهلنا لمواكبة التقنية العالمية مما يمكننا من تقديم مستويات غير مسبوقة من الخدمات إرضاءً لمتطلبات عملائنا الكرام.">
     {{ $logo := resources.Get "images/logo.png" }}
-    <meta property="og:image"
-        content="{{ $logo.Permalink }}">
+    <meta property="og:image" content="{{ $logo.Permalink }}">
+    <meta property="og:url" content="https://gmc-eg.com/demo">
+    <meta property="og:locale" content="EG">
+    <meta property="og:type" content="website">
 
     <!-- Link Font awesome by CDN -->
     <script src="https://kit.fontawesome.com/d633f21f4a.js" crossorigin="anonymous"></script>
@@ -55,10 +57,17 @@
     </main>
     {{ partial "footer.html" . }}
 
+    <!-- Whatsapp button Start -->
+    <a target="_blank" href="https://api.whatsapp.com/send?phone=2001026229900" data-toggle="whatsapp-btn" aria-label="Whatsapp button"
+        class="fixed text-sm rounded-full z-10 start-5 h-14 w-14 text-center flex bg-blue-300 text-white justify-center items-center transition-all duration-300 bottom-5">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+    <!-- Whatsapp button End -->
+
     <!-- Back To Top Start -->
     <button data-toggle="back-to-top" aria-label="Scroll To Top"
-        class="fixed text-sm rounded-full z-10 end-5 h-9 w-9 text-center bg-blue-300 text-white justify-center items-center transition-all duration-300 bottom-5">
-        <i class="fa-solid fa-arrow-up text-base"></i>
+        class="fixed text-sm rounded-full z-10 end-5 h-14 w-14 text-center flex bg-blue-300 text-white justify-center items-center transition-all duration-300 bottom-5">
+        <i class="fa-solid fa-arrow-up text-3xl"></i>
     </button>
     <!-- Back To Top End -->
 

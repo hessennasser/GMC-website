@@ -4,6 +4,7 @@ const navMenu = document.getElementById('nav-menu');
 const navToggle = document.getElementById('nav-toggle');
 const navIcon = document.getElementById('nav-icon');
 const backToTopButton = document.querySelector('[data-toggle="back-to-top"]');
+const whatsappButton = document.querySelector('[data-toggle="whatsapp-btn"]');
 
 
 // display and hide nav menu
@@ -22,7 +23,6 @@ navToggle.addEventListener('click', () => {
     }
 });
 
-
 // add class to header on scroll
 // and add class to back to top button on scroll
 window.addEventListener('scroll', () => {
@@ -30,9 +30,11 @@ window.addEventListener('scroll', () => {
     if (scrollPosition > 60) {
         header.classList.add('nav-sticky');
         backToTopButton.classList.replace('-bottom-10', 'bottom-5');
+        whatsappButton.classList.replace('-bottom-10', 'bottom-5');
     } else {
         header.classList.remove('nav-sticky');
         backToTopButton.classList.replace('bottom-5', '-bottom-10');
+        whatsappButton.classList.replace('bottom-5', '-bottom-10');
     }
 });
 

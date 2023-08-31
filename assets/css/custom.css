@@ -42,8 +42,12 @@ html {
     background-position: center;
 }
 
+.hero-section.home::before {
+    background-color: rgba(128, 81, 0, 0.25);
+}
+
 .hero-section::before {
-    background-color: rgba(128, 81, 0, 0.65);
+    background-color: rgb(43 41 38 / 40%);
 }
 
 section {
@@ -64,7 +68,7 @@ nav.show {
     position: fixed;
     padding-block: 2rem;
     width: 100%;
-    top: 72px;
+    top: 64px;
     right: 0;
     align-items: center;
     justify-content: center;
@@ -167,7 +171,7 @@ nav.show,
 /* Facebook Video */
 .facebook-responsive {
     overflow: hidden;
-    padding-bottom: 50.25%;
+    padding-bottom: 52.25%;
     position: relative;
     right: 50%;
     transform: translateX(65%);
@@ -269,8 +273,22 @@ nav.show,
 .markdown ol>li,
 .markdown ul>li {
     display: block;
-    margin: 0;
+    margin: 5px 0;
     min-height: 28px;
+}
+
+html[dir="ltr"] .markdown ol>li,
+html[dir="ltr"] .markdown ul>li {
+    translate: 10px;
+}
+
+html[dir="rtl"] .markdown ol>li,
+html[dir="rtl"] .markdown ul>li {
+    translate: -10px;
+}
+
+.markdown ul>li {
+    list-style-type: disc;
 }
 
 .markdown ol>li {
@@ -356,4 +374,14 @@ nav.show,
     top: 0;
     left: 0;
     right: 0;
+}
+
+h1.text-3xl.md\:text-5xl.text-white.font-medium.text-center.w-fit.mx-auto.relative.after\:bg-amber-200.md\:after\:h-6.after\:h-4.after\:w-full.after\:inset-x-0.after\:bottom-0.after\:absolute.after\:-z-10 {
+    margin-top: 8rem;
+}
+
+@media (max-width: 768px) {
+    h1.text-3xl.md\:text-5xl.text-white.font-medium.text-center.w-fit.mx-auto.relative.after\:bg-amber-200.md\:after\:h-6.after\:h-4.after\:w-full.after\:inset-x-0.after\:bottom-0.after\:absolute.after\:-z-10 {
+    margin-top: 0rem;
+    }
 }

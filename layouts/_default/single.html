@@ -36,22 +36,31 @@
                 <!-- Title -->
                 <h2 class="md:text-5xl text-3xl text-white font-medium my-5">{{ .Params.sectionTitle }}</h2>
                 <!-- Description -->
-                <h3 class="w-full md:w-3/4 mx-auto text-lg font-medium mt-6 mb-20 text-slate-100">{{
-                    .Params.sectionDescription
-                    }}</h3>
+                <h3 class="w-full md:w-3/4 mx-auto text-lg font-medium mt-6 mb-20 text-slate-100">
+                    {{.Params.sectionDescription}}
+                    {{.Params.desc}}
+                </h3>
             </div>
         </section>
         <!-- main section end -->
 
         <!-- content section -->
-        <div class="py-10 relative z-10 bg-[#f9fafb] markdown">
+        <div class="py-2 relative z-10 bg-[#f9fafb] markdown" style="border-radius: 3rem 3rem 0 0;">
             <!-- content from the file on dir (content/ar & content/en)*.html/md -->
             <div class="container">
                 {{ .Content }}
+                {{ with .Params.pdf }}
+                <object data="{{ . | relURL }}" type="application/pdf" width="100%" height="450px" style="margin-inline: auto; height: 450px;margin-block: 1rem;">
+                    <embed src="{{ . | relURL }}" type="application/pdf" width="100%" height="450px">
+                    <p>This browser does not support PDFs. Please download the PDF to view it: <a
+                            href="{{ . | relURL }}">Download PDF</a>.</p>
+                    </embed>
+                </object>
+                {{ end }}
             </div>
         </div>
         <!-- ========== Advantages Start ========== -->
-        {{ partial "advantages.html" (dict "advantagesTitle" .Site.Params.advantagesTitle "advantagesDescription"
-        .Site.Params.advantagesDescription "advantagesContent" .Site.Params.advantagesContent) }}
+        <!-- {{ partial "advantages.html" (dict "advantagesTitle" .Site.Params.advantagesTitle "advantagesDescription"
+        .Site.Params.advantagesDescription "advantagesContent" .Site.Params.advantagesContent) }} -->
         <!-- ========== Advantages End ========== -->
         {{ end }}
