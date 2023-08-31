@@ -1,4 +1,4 @@
-baseURL = "https://hessennasser.github.io/GMC-website/"
+baseURL = "https://gmc-eg.com/demo/"
 languageCode = "en-us"
 title = "Global Mining Company | GMC"
 
@@ -18,7 +18,7 @@ backgroundImage = 'image/herobg.jpg'
         title = "Global Mining Company | GMC"
         weight = 1
         [languages.en.params]
-            logoName = {name = "Global Mining Company | GMC", url="/GMC-website/en/"}
+            logoName = {name = "Global Mining Company | GMC", url="/demo/en/"}
             
             copyRights = "Copyright 2023 . Global Mining Company | GMC"
             
@@ -26,10 +26,10 @@ backgroundImage = 'image/herobg.jpg'
             
             # header links
             headerLinks = [
-                { name = "Home", url = "/GMC-website/en/" },
-                { name = "About Us", url = "/GMC-website/en/about" },
-                { name = "Contact Us", url = "/GMC-website/en/contact" },
-                { name = "Products", url = "/GMC-website/en/products" },
+                { name = "Home", url = "/demo/en/" },
+                { name = "About Us", url = "/demo/en/about" },
+                { name = "Contact Us", url = "/demo/en/contact" },
+                { name = "Products", url = "/demo/en/products" },
             ]
 
             # hero section data
@@ -62,7 +62,7 @@ backgroundImage = 'image/herobg.jpg'
         languageName = "Arabic"
         weight = 2
         [languages.ar.params]
-            logoName = {name = "شركة التعدين العالمية | GMC", url="/GMC-website/ar/"}
+            logoName = {name = "شركة التعدين العالمية | GMC", url="/demo/ar/"}
 
             copyRights = "جميع الحقوق محفوظة 2023 . شركة التعدين العالمية | GMC"
 
@@ -70,10 +70,10 @@ backgroundImage = 'image/herobg.jpg'
 
             # header links
             headerLinks = [
-                { name = "الرئيسية", url = "/GMC-website/ar/" },
-                { name = "من نحن", url = "/GMC-website/ar/about" },
-                { name = "اتصل بنا", url = "/GMC-website/ar/contact" },
-                { name = "المنتجات", url = "/GMC-website/ar/products" },
+                { name = "الرئيسية", url = "/demo/ar/" },
+                { name = "من نحن", url = "/demo/ar/about" },
+                { name = "اتصل بنا", url = "/demo/ar/contact" },
+                { name = "المنتجات", url = "/demo/ar/products" },
             ]
             
             # hero section data 
