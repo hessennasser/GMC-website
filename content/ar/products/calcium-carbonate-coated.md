@@ -2,7 +2,7 @@
 title: " كربونات الكالسيوم المعالجة"
 desc: "تم إنتاجه عن طريق معالجة كربونات الكالسيوم المتبلورة الدقيقة الطبيعية، ثم تم معالجتها بمادة تجعلها غير قابلة للذوبان في الماء."
 image: "images/products/caco3-coated.jpg"
-pdf: "/demo/pdfs/GMC - Calcium Carbonate “ Coated ” TDS.pdf"
+pdf: "/demo/pdfs/GMC - Calcium Carbonate TDS Coated.pdf"
 weight: 2
 ---
 

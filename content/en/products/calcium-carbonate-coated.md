@@ -2,7 +2,7 @@
 title: "Calcium Carbonate Coated"
 desc: "Produced by processing natural finest microcrystalline Calcium Carbonate, It was then treated with some material, which makes it insoluble in water."
 image: "images/products/caco3-coated.jpg"
-pdf: "/demo/pdfs/GMC - Calcium Carbonate “ Coated ” TDS.pdf"
+pdf: "/demo/pdfs/GMC - Calcium Carbonate TDS Coated.pdf"
 weight: 2
 ---
 

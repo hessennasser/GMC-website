@@ -3,12 +3,12 @@
     id="header">
     <div class="container flex items-center justify-between relative">
         <div class="relative z-50">
-            <div class="brand flex items-center justify-center gap-4">
+            <div class="brand flex items-center justify-center md:gap-4">
                 {{ $image := resources.Get "images/logo-shape.png" }}
                 {{ with $image }}
-                <img class="w-10 md:w-16 lg:w-20" src="{{ .RelPermalink }}" alt="GTC">
+                <img class="w-10 md:w-16 lg:w-16" src="{{ .RelPermalink }}" alt="GTC">
                 {{ end }}
-                <a href="{{ .Site.Params.logoName.url }}" class="text-[12px] sm:text-lg md:text-2xl font-bold">
+                <a href="{{ .Site.Params.logoName.url }}" class="text-[12px] sm:text-lg md:text-xl font-bold">
                     {{ .Site.Params.logoName.name }}
                 </a>
             </div>

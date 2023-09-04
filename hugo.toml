@@ -38,15 +38,15 @@ heroSection = { title = "Welcome to", titleTwo = "Global Mining Company", titleT
 
 # contact information
 contactInfo = [
-    { icon = "fa-solid fa-location-dot", name = "location", value = "Fifth industrial zone, Sadat City , Monofia , Egypt", link = "https://goo.gl/maps/pFUu4icDpY5GWBVb6", target = "_blank" },
-    { icon = "fa-solid fa-phone", name = "Main Administration", value = "002 / 01026229900", target = "_self" },
-    { icon = "fa-solid fa-phone", name = "Sales & Acquisitions", value = "002 / 01017070928", target = "_self" },
+    { icon = "fa-solid fa-location-dot", name = "location", value = "Sadat City - Extension of the Fifth Industrial Zone - Al Ersal street", link = "https://goo.gl/maps/pFUu4icDpY5GWBVb6", target = "_blank" },
+    { icon = "fa-solid fa-phone", name = "Head Office", value = "002 / 01026229900", target = "_self" },
+    { icon = "fa-solid fa-phone", name = "Sales", value = "002 / 01017070928", target = "_self" },
     { icon = "fa-solid fa-envelope", name = "Email", value = "info@gmc-eg.com", link = "mailto:info@gmc-eg.com", target = "_self" },
     { icon = "fa-solid fa-envelope", name = "Email", value = "gmc.sadat@gmail.com", link = "mailto:gmc.sadat@gmail.com", target = "_self" },
 ]
 
 # advantages section
-advantagesTitle = "Why Choose Us?"
+advantagesTitle = "Why You Choose Us?"
 advantagesDescription = "We are keen to keep pace with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements."
 advantagesContent = [
     { imagePath = "images/advantages/image-1.jpg", icon = "fa-solid fa-check", title = "Quality", description = "We are keen to keep pace with all the latest developments, ensuring the quality of the materials, which enables us to keep pace with global technology and provide unprecedented levels of service to satisfy our esteemed customers' requirements." },

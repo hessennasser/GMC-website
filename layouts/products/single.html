@@ -29,12 +29,12 @@
 
             <!-- title Of Page -->
             <h1
-                class="text-3xl md:text-5xl text-white font-medium text-center w-fit mx-auto relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+                class="text-xl md:text-4xl text-white font-medium text-center w-fit mx-auto relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
                 {{ .Title }}
             </h1>
             <div class="container text-center">
                 <!-- Title -->
-                <h2 class="md:text-5xl text-3xl text-white font-medium my-5">{{ .Params.sectionTitle }}</h2>
+                <h2 class="text-xl md:text-3xl text-white font-medium my-5">{{ .Params.sectionTitle }}</h2>
                 <!-- Description -->
                 <h3 class="w-full md:w-3/4 mx-auto text-lg font-medium mt-6 mb-20 text-slate-100">
                     {{.Params.sectionDescription}}
@@ -64,50 +64,91 @@
         <section class="py-5 relative z-10 bg-[#f9fafb]">
             <h2
                 class="text-3xl text-gray-600 font-medium text-center w-fit mx-auto my-5 relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
-                {{ if eq $.Site.Language.Lang "en" }}Similar Products{{ else }}منتجات اخري{{ end }}
+                {{ if eq $.Site.Language.Lang "en" }}Other Products{{ else }}منتجات اخري{{ end }}
             </h2>
             <div class="container">
-                <ul class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-                    {{ $currentProductTitle := .Title }}
-                    {{ range .Site.RegularPages }}
-                    {{ if and (.Params.title) (eq .Section "products") (not (eq .Title $currentProductTitle)) }}
-                    {{ $productImage := resources.Get .Params.image }}
-                    <li class="group flex flex-col relative rounded-md overflow-hidden" data-aos="fade-up"
-                        data-aos-duration="500">
-                        <a href="{{ .RelPermalink | relURL }}" class="w-full h-full">
-                            {{ with $productImage }}
-                            <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}"
-                                class="h-64 object-contain">
-                            {{ end }}
-                        </a>
-                        <h4 class="my-2 text-2xl font-semibold">
-                            {{ .Params.title }}
-                        </h4>
-                        {{ with .Params.desc }}
-                        <p class="text-sm">
-                            {{ if gt (len .) 100 }}
-                            {{ $truncatedDesc := substr . 0 85 }}
-                            {{ $truncatedDesc = printf "%s..." $truncatedDesc }}
-                            {{ $truncatedDesc }}
-                            {{ else }}
-                            {{ . }}
-                            {{ end }}
-                        </p>
+                <div class="slides-3 overflow-x-hidden">
+                    <ul class="swiper-wrapper">
+                        {{ $currentProductTitle := .Title }}
+                        {{ range .Site.RegularPages }}
+                        {{ if and (.Params.title) (eq .Section "products") (not (eq .Title $currentProductTitle)) }}
+                        {{ $productImage := resources.Get .Params.image }}
+                        <div class="swiper-slide">
+                            <li class="group flex flex-col relative rounded-md overflow-hidden text-center md:text-start"
+                                data-aos="fade-up" data-aos-duration="500">
+                                <a href="{{ .RelPermalink | relURL }}" class="w-full h-full">
+                                    {{ with $productImage }}
+                                    <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}"
+                                        class="h-64 object-contain mx-auto">
+                                    {{ end }}
+                                </a>
+                                <h4 class="my-2 text-2xl font-semibold">
+                                    {{ .Params.title }}
+                                </h4>
+                                {{ with .Params.desc }}
+                                <p class="text-sm">
+                                    {{ if gt (len .) 100 }}
+                                    {{ $truncatedDesc := substr . 0 85 }}
+                                    {{ $truncatedDesc = printf "%s..." $truncatedDesc }}
+                                    {{ $truncatedDesc }}
+                                    {{ else }}
+                                    {{ . }}
+                                    {{ end }}
+                                </p>
+                                {{ end }}
+                                <a href="{{ .RelPermalink | relURL }}" class="text-blue-400 mt-3 block duration-200
+                        {{ if eq $.Site.Language.Lang " en" }} hover:translate-x-2 {{ else }} hover:-translate-x-2 {{
+                                    end }}">
+                                    {{ if eq $.Site.Language.Lang "en" }}
+                                    More Details <i class="fa-solid mx-3 fa-arrow-right"></i>
+                                    {{ else }}
+                                    المزيد من التفاصيل <i class="fa-solid mx-3 fa-arrow-left"></i>
+                                    {{end}}
+                                </a>
+                            </li>
+                        </div>
                         {{ end }}
-                        <a href="{{ .RelPermalink | relURL }}" class="text-blue-400 mt-3 block duration-200
-                        {{ if eq $.Site.Language.Lang "en" }} hover:translate-x-2 {{ else }} hover:-translate-x-2 {{
-                            end }}">
-                            {{ if eq $.Site.Language.Lang "en" }}
-                            More Details <i class="fa-solid mx-3 fa-arrow-right"></i>
-                            {{ else }}
-                            المزيد من التفاصيل <i class="fa-solid mx-3 fa-arrow-left"></i>
-                            {{end}}    
-                        </a>
-                    </li>
-                    {{ end }}
-                    {{ end }}
-                </ul>
+                        {{ end }}
+                    </ul>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
         </section>
+        <script>
+            const swiper = new Swiper('.slides-3', {
+                direction: 'horizontal',
+                autoplay: {
+                    delay: 2000,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'bullets',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                centeredSlides: true,
+                centeredSlidesBounds: true,
+                loop: true,
+                slidesPerView: 2, // Default number of images per slide
+                breakpoints: {
+                    1600: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    },
+                    991: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    640: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    }
+                }
+            });
 
+        </script>
         {{ end }}

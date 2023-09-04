@@ -16,8 +16,8 @@
         <div class="container">
             <!-- title -->
             <h2
-                class="text-3xl mb-4 text-gray-600 font-medium text-center w-fit mx-auto relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
-                {{ if eq $.Site.Language.Lang "en" }}Demonstration Video{{ else }}فيديو تعريفي{{ end }}
+                class="text-xl sm:text-3xl mb-4 text-gray-600 font-medium text-center w-fit mx-auto relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
+                {{ if eq $.Site.Language.Lang "en" }}Corporate Video{{ else }}فيديو تعريفي{{ end }}
             </h2>
             <div class="facebook-responsive flex items-center justify-center">
                 <iframe
@@ -92,7 +92,7 @@
             <!-- title -->
             <h2
                 class="text-3xl text-gray-600 font-medium text-center w-fit mx-auto relative after:bg-amber-200 md:after:h-6 after:h-4 after:w-full after:inset-x-0 after:bottom-0 after:absolute after:-z-10">
-                {{ if eq $.Site.Language.Lang "en" }}Featured Products{{ else }}منتجات مميزة{{ end }}
+                {{ if eq $.Site.Language.Lang "en" }}Amazing Products{{ else }}منتجات مميزة{{ end }}
             </h2>
             <!-- description -->
             <p class="text-center text-gray-500 mt-2 mb-10">
@@ -120,13 +120,13 @@
                 {{ end }}
                 {{ $duration := 500 }}
                 {{ range $latestProducts }}
-                <li class="group flex flex-col relative rounded-md overflow-hidden" data-aos="fade-up"
+                <li class="group flex flex-col relative rounded-md overflow-hidden text-center sm:text-start" data-aos="fade-up"
                     data-aos-duration="{{ $duration }}">
                         <a href="{{ .RelPermalink | relURL }}" class="w-full h-full">
                         {{ with .Params.image }}
                         {{ $image := resources.Get . }}
                         {{ with $image }}
-                        <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}" class="h-64 object-contain">
+                        <img src="{{ .RelPermalink | relURL }}" alt="{{ .Params.title }}" class="h-64 object-contain mx-auto">
                         {{ end }}
                         {{ end }}
                     </a>
@@ -208,7 +208,7 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </span>
                                 <div class="grow">
-                                    <h5 class="text-base">Sales & Acquisitions</h5>
+                                    <h5 class="text-base">Sales</h5>
                                     <span>002 / 01017070928</span>
                                 </div>
                             </div>
@@ -220,7 +220,7 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </span>
                                 <div class="grow">
-                                    <h5 class="text-base">Main Administration</h5>
+                                    <h5 class="text-base">Head Office</h5>
                                     <span>002 / 01026229900</span>
                                 </div>
                             </div>
@@ -234,7 +234,7 @@
                                 </span>
                                 <div class="grow">
                                     <h5 class="text-base">Address</h5>
-                                    <span>Sadat City - Extension of the Fifth Industrial Zone - Al-Irsal Street</span>
+                                    <span>Sadat City - Extension of the Fifth Industrial Zone - Al Ersal street</span>
                                 </div>
                             </div>
                         </a>
