@@ -3,7 +3,7 @@ title: "Silica Sand"
 desc: "Silica (SiO2) sand is the sand found on a beach and is also the most commonly used sand.
 It is made by either crushing sandstone or taken from natural occurring locations, such as beaches and river beds."
 image: "images/products/silica.jpg"
-pdf: "/demo/pdfs/GMC - SILICA SAND TDS.pdf"
+pdf: "/pdfs/GMC - SILICA SAND TDS.pdf"
 weight: 7
 ---
 ## Description

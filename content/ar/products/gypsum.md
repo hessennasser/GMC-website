@@ -6,7 +6,7 @@ desc: "الجبس هو معدن كبريتاتي ناعم يتكون من كبر
 لمعان زجاجي إلى حريري، لؤلؤي، أو شمعي، خط أبيض
 الكثافة النوعية (2.31–2.33)، قابلية الانصهار (5)، قابلية الذوبانية في HCl الساخن والمخفف"
 image: "images/products/cypsum.jpg"
-pdf: "/demo/pdfs/GMC - GYPSUM TDS.pdf"
+pdf: "/pdfs/GMC - GYPSUM TDS.pdf"
 feature: true
 weight: 4
 ---

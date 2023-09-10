@@ -2,7 +2,7 @@
 title: "الفلسبار"
 desc: "الفلسبار هي معادن سيليكاتية للألمنيوم والبوتاسيوم والصوديوم والكالسيوم والباريوم، تنتمي إلى مجموعة العناصر القلوية والأرضية، وتتميز ببنية بلورية. المكونات الرئيسية للفلدسبار تشمل SiO2 و Al2O3 و K2O و Na2O و CaO وغيرها."
 image: "images/products/feldspar.jpg"
-pdf: "/demo/pdfs/GMC - FELDSPAR TDS.pdf"
+pdf: "/pdfs/GMC - FELDSPAR TDS.pdf"
 weight: 6
 ---
 

@@ -1,4 +1,4 @@
-baseURL = "https://gmc-eg.com/demo/"
+baseURL = "https://gmc-eg.com"
 languageCode = "en-us"
 title = "Global Mining Company | GMC"
 
@@ -18,7 +18,7 @@ languageDirection = 'ltr'
 title = "Global Mining Company | GMC"
 weight = 1
 [languages.en.params]
-logoName = { name = "Global Mining Company | GMC", url = "/demo/en/" }
+logoName = { name = "Global Mining Company | GMC", url = "/en/" }
 
 copyRights = "Copyright 2023 . Global Mining Company | GMC"
 
@@ -26,10 +26,10 @@ description = "Our journey in mining began in the 1980s with trading in calcium 
 
 # header links
 headerLinks = [
-    { name = "Home", url = "/demo/en/" },
-    { name = "Products", url = "/demo/en/products" },
-    { name = "About Us", url = "/demo/en/about" },
-    { name = "Contact Us", url = "/demo/en/contact" },
+    { name = "Home", url = "/en/" },
+    { name = "Products", url = "/en/products" },
+    { name = "About Us", url = "/en/about" },
+    { name = "Contact Us", url = "/en/contact" },
 ]
 
 # hero section data
@@ -64,7 +64,7 @@ title = "شركة العالمية للتعدين | GMC"
 languageName = "Arabic"
 weight = 2
 [languages.ar.params]
-logoName = { name = "شركة العالمية للتعدين | GMC", url = "/demo/ar/" }
+logoName = { name = "شركة العالمية للتعدين | GMC", url = "/ar/" }
 
 copyRights = "جميع الحقوق محفوظة 2023 . شركة العالمية للتعدين | GMC"
 
@@ -72,10 +72,10 @@ description = "بدأ رحلتنا مع التعدين في ثمانينات ا�
 
 # header links
 headerLinks = [
-    { name = "الرئيسية", url = "/demo/ar/" },
-    { name = "المنتجات", url = "/demo/ar/products" },
-    { name = "من نحن", url = "/demo/ar/about" },
-    { name = "تواصل معنا", url = "/demo/ar/contact" },
+    { name = "الرئيسية", url = "/ar/" },
+    { name = "المنتجات", url = "/ar/products" },
+    { name = "من نحن", url = "/ar/about" },
+    { name = "تواصل معنا", url = "/ar/contact" },
 ]
 
 # hero section data 

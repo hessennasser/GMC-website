@@ -361,7 +361,7 @@ html[dir="rtl"] .markdown ul>li {
 
 /* contact-us background */
 .contact-us {
-    background: url("https://bootstrapmade.com/demo/templates/Nova/assets/img/contact-bg.png") left top no-repeat;
+    background: url("https://bootstrapmade.com/templates/Nova/assets/img/contact-bg.png") left top no-repeat;
     background-size: contain;
     position: relative;
     padding-bottom: 2rem;

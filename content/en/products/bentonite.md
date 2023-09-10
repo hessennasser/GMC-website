@@ -3,7 +3,7 @@ title: "Bentonite"
 desc: "Bentonite is an absorbent aluminum phyllosilicate clay mainly consisting of montmorillonite.
 The different types of bentonite are each named after the relative dominant element, such as potassium (K), sodium (Na), calcium (Ca), and aluminum (Al)."
 image: "images/products/bentonite.jpg"
-pdf: "/demo/pdfs/GMC - BENTONITE TDS.pdf"
+pdf: "/pdfs/GMC - BENTONITE TDS.pdf"
 feature: true
 weight: 5
 ---

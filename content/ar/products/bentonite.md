@@ -2,7 +2,7 @@
 title: "بنتونيت"
 desc: "البنتونيت هو طين ممتص يحتوي أساسًا على مونتموريلونيت، وهو مركب فلسليكات ألومنيوم امتصاصي. تم تسمية أنواع مختلفة من البنتونيت باسم العنصر السائد نسبيًا، مثل البوتاسيوم (K)، والصوديوم (Na)، والكالسيوم (Ca)، والألومنيوم (Al)."
 image: "images/products/bentonite.jpg"
-pdf: "/demo/pdfs/GMC - BENTONITE TDS.pdf"
+pdf: "/pdfs/GMC - BENTONITE TDS.pdf"
 feature: true
 weight: 5
 ---

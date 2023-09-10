@@ -2,7 +2,7 @@
 title: "Feldspar"
 desc: "Feldspar refers to a group of aluminum silicate minerals containing elements like potassium, sodium, calcium, barium, etc. These minerals belong to the alkali metal or alkaline earth metal category and exhibit a crystalline structure. The primary components of feldspar include SiO2, Al2O3, K2O, Na2O, CaO, and more."
 image: "images/products/feldspar.jpg"
-pdf: "/demo/pdfs/GMC - FELDSPAR TDS.pdf"
+pdf: "/pdfs/GMC - FELDSPAR TDS.pdf"
 weight: 6
 ---
 ## Description

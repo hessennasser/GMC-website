@@ -3,7 +3,7 @@ title: "Gypsum"
 desc: "Gypsum is a soft sulfate mineral composed of calcium sulfate dihydrate, with the chemical formula CaSO4·2H2O.
 - **Color:** Colorless to white; may be yellow, tan, blue, pink, brown, reddish brown, or gray due to impurities."
 image: "images/products/cypsum.jpg"
-pdf: "/demo/pdfs/GMC - GYPSUM TDS.pdf"
+pdf: "/pdfs/GMC - GYPSUM TDS.pdf"
 feature: true
 weight: 4
 ---

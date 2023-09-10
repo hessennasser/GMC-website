@@ -5,7 +5,7 @@ In process mixing of high purity selected chalk deposits results in extremely, f
 It is exceptional brightness, fineness of grind, low oil absorption and cost.
 "
 image: "images/products/caco3.jpg"
-pdf: "/demo/pdfs/GMC - Calcium Carbonate TDS.pdf"
+pdf: "/pdfs/GMC - Calcium Carbonate TDS.pdf"
 feature: true
 weight: 1
 ---

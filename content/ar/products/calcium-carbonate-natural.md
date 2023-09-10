@@ -2,7 +2,7 @@
 title: "كربونات كالسيوم"
 desc: "هـي مـادة طبيعية بيضاء بياض عـالي النقاء ، منتقـاه من أجود أنواع الحجر الجيري والـرخام ، ويتـم إنتاجها بدرجات نعومه ومقاسات مختلفة."
 image: "images/products/caco3.jpg"
-pdf: "/demo/pdfs/GMC - Calcium Carbonate TDS.pdf"
+pdf: "/pdfs/GMC - Calcium Carbonate TDS.pdf"
 feature: true
 weight: 1
 ---
