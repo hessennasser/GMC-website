@@ -1,60 +1,95 @@
 <header
-    class="light fixed top-0 inset-x-0 flex items-center z-40 w-full lg:bg-transparent text-black text-white lg:text-white transition-all py-2"
-    id="header">
-    <div class="container flex items-center justify-between relative">
-        <div class="relative z-50">
-            <div class="brand flex items-center justify-center md:gap-4">
-                {{ $image := resources.Get "images/logo-shape.png" }}
-                {{ with $image }}
-                <img class="w-10 md:w-16 lg:w-16" src="{{ .RelPermalink }}" alt="GTC">
-                {{ end }}
-                <a href="{{ .Site.Params.logoName.url }}" class="text-[12px] sm:text-lg md:text-xl font-bold">
-                    {{ .Site.Params.logoName.name }}
-                </a>
-            </div>
-        </div>
-        <nav class="hidden md:block ms-auto" id="nav-menu">
-            <ul class="md:flex flex-1 items-center justify-center">
-                {{ range .Site.Params.headerLinks }}
-                <li class="ml-4">
-                    <a href="{{ .url }}" class="">{{ .name }}</a>
-                </li>
-                {{ end }}
-            </ul>
-            <!-- Language Selector Button -->
-        </nav>
-        <div class="flex gap-4 items-center">
-            <button onclick="changeLanguage()" class="text-sm sm:text-md md:mx-5 flex items-center sm:gap-2 sm:mx-3">
-                <i class="fa-solid fa-globe hidden sm:block"></i> {{ if eq $.Site.Language.Lang "en" }}AR{{ else }}EN{{
-                end }}
-            </button>
-            <button class="md:hidden text-2xl relative z-50" id="nav-toggle" aria-label="Open Menu">
-                <i class="fa-solid fa-bars" id="nav-icon"></i>
-            </button>
-        </div>
-    </div>
+	class="light fixed top-0 inset-x-0 flex items-center z-40 w-full lg:bg-transparent text-white lg:text-white transition-all py-2"
+	id="header">
+	<div class="container flex items-center justify-between relative">
+		<!-- Logo Section -->
+		<div class="relative z-50">
+			<div class="brand flex items-center justify-center md:gap-4">
+				{{ if $image := resources.Get "images/logo-shape.png" }}
+				<img
+					class="w-10 md:w-16 lg:w-16"
+					src="{{ $image.RelPermalink }}"
+					alt="GTC" />
+				{{ end }}
+				<a
+					href="{{ .Site.Params.logoName.url }}"
+					class="text-[12px] sm:text-lg md:text-xl font-bold">
+					{{ .Site.Params.logoName.name }}
+				</a>
+			</div>
+		</div>
+
+		<!-- Navigation Menu -->
+		<nav class="hidden md:block ms-auto" id="nav-menu">
+			<ul class="md:flex flex-1 items-center justify-center">
+				{{ range .Site.Params.headerLinks }}
+				<li class="ml-4">
+					<a href="{{ .url }}" class="hover:opacity-80 transition-opacity"
+						>{{ .name }}</a
+					>
+				</li>
+				{{ end }}
+			</ul>
+		</nav>
+
+		<!-- Language Selector and Mobile Menu -->
+		<div class="flex gap-4 items-center">
+			<button
+				onclick="changeLanguage()"
+				class="text-sm sm:text-md md:mx-5 flex items-center sm:gap-2 sm:mx-3 hover:opacity-80 transition-opacity"
+				aria-label="Change Language">
+				<i class="fa-solid fa-globe hidden sm:block"></i>
+				{{ if eq .Site.Language.Lang "en" }}AR{{ else }}EN{{ end }}
+			</button>
+			<button
+				class="md:hidden text-2xl relative z-50"
+				id="nav-toggle"
+				aria-label="Toggle Menu">
+				<i class="fa-solid fa-bars" id="nav-icon"></i>
+			</button>
+		</div>
+	</div>
 </header>
 
 <script>
-    // JavaScript function to handle language change
-    function changeLanguage() {
-        // Get the current URL
-        let currentUrl = window.location.href;
+	function changeLanguage() {
+		const currentUrl = window.location.href;
+		const baseUrl = window.location.origin;
+		let newUrl;
 
-        // Check if "en" is present in the URL
-        if (currentUrl.includes("/en/")) {
-            // Replace "en" with "ar" in the URL
-            let newUrl = currentUrl.replace("/en/", "/ar/");
+		// Handle both www and non-www URLs
+		if (
+			currentUrl.includes('/en/') ||
+			currentUrl === baseUrl ||
+			currentUrl === baseUrl + '/'
+		) {
+			// Switch to Arabic
+			newUrl = currentUrl.replace(/\/en\/|^\/?$/, '/ar/');
+		} else if (currentUrl.includes('/ar/')) {
+			// Switch to English
+			newUrl = currentUrl.replace('/ar/', '/en/');
+		} else {
+			// Default to English if path is unclear
+			newUrl = `${baseUrl}/en/`;
+		}
 
-            // Redirect to the new URL
-            window.location.href = newUrl;
-        }
-        else if (currentUrl.includes("/ar/")) {
-            // Replace "en" with "ar" in the URL
-            let newUrl = currentUrl.replace("/ar/", "/en/");
+		// Preserve query parameters and hash if any
+		const queryAndHash = window.location.search + window.location.hash;
+		newUrl = newUrl.split('?')[0].split('#')[0] + queryAndHash;
 
-            // Redirect to the new URL
-            window.location.href = newUrl;
-        }
-    }
+		window.location.href = newUrl;
+	}
+
+	// Add event listener for mobile menu toggle
+	document.addEventListener('DOMContentLoaded', function () {
+		const navToggle = document.getElementById('nav-toggle');
+		const navMenu = document.getElementById('nav-menu');
+		const navIcon = document.getElementById('nav-icon');
+
+		navToggle?.addEventListener('click', function () {
+			navMenu.classList.toggle('hidden');
+			navIcon.classList.toggle('fa-bars');
+			navIcon.classList.toggle('fa-times');
+		});
+	});
 </script>

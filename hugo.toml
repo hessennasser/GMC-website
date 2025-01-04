@@ -39,8 +39,9 @@ heroSection = { title = "Welcome to", titleTwo = "Global Mining Company", titleT
 # contact information
 contactInfo = [
     { icon = "fa-solid fa-location-dot", name = "location", value = "Sadat City - Extension of the Fifth Industrial Zone - Al Ersal street", link = "https://goo.gl/maps/pFUu4icDpY5GWBVb6", target = "_blank" },
-    { icon = "fa-solid fa-phone", name = "Head Office", value = "002 / 01026229900", target = "_self" },
-    { icon = "fa-solid fa-phone", name = "Sales", value = "002 / 01017070928", target = "_self" },
+    { icon = "fa-solid fa-phone", name = "Sales", value = "+201017070928", target = "_self" },
+    { icon = "fa-solid fa-phone", name = "Head Office", value = "+201000679760", target = "_self" },
+    { icon = "fa-solid fa-phone", name = "Export", value = "+201026229900", target = "_self" },
     { icon = "fa-solid fa-envelope", name = "Email", value = "info@gmc-eg.com", link = "mailto:info@gmc-eg.com", target = "_self" },
     { icon = "fa-solid fa-envelope", name = "Email", value = "gmc.sadat@gmail.com", link = "mailto:gmc.sadat@gmail.com", target = "_self" },
 ]
@@ -84,8 +85,9 @@ heroSection = { title = "أهلا وسهلاً بك في", titleTwo = "العا�
 # contact information
 contactInfo = [
     { icon = "fa-solid fa-location-dot", name = "العنوان", value = "مدينة السادات - امتداد المنطقة الصناعية الخامسة - شارع الإرسال", link = "https://goo.gl/maps/pFUu4icDpY5GWBVb6", target = "_blank" },
-    { icon = "fa-solid fa-phone", name = "الإدارة الرئيسية", value = "01026229900 / 002", target = "_self" },
-    { icon = "fa-solid fa-phone", name = "المبيعات", value = "01017070928 / 002", target = "_self" },
+    { icon = "fa-solid fa-phone", name = "المبيعات", value = "+201017070928", target = "_self" },
+    { icon = "fa-solid fa-phone", name = "الإدارة الرئيسية", value = "+201000679760", target = "_self" },
+    { icon = "fa-solid fa-phone", name = "التصدير", value = "+201026229900", target = "_self" },
     { icon = "fa-solid fa-envelope", name = "البريد الإلكتروني", value = "info@gmc-eg.com", link = "mailto:info@gmc-eg.com", target = "_self" },
     { icon = "fa-solid fa-envelope", name = "البريد الإلكتروني", value = "gmc.sadat@gmail.com", link = "mailtogmc.sadat@gmail.com", target = "_self" },
 ]
